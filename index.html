@@ -6,249 +6,159 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'EB Garamond', serif;
-    }
-
     body {
-      background-color: #000;
+      background-color: #0d0015;
+      font-family: 'EB Garamond', serif;
+      background-image: 
+        url('https://i.imgur.com/fq4t1cz.png'), 
+        url('https://i.imgur.com/gRr8dIl.png'), 
+        url('https://i.imgur.com/YRxt3I6.png');
+      background-repeat: repeat;
+      background-position: top left, center, bottom right;
+      background-size: 150px;
       color: white;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Fondo con palabras flotantes */
-    .floating-word {
-      position: absolute;
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.08);
-      animation: float 40s linear infinite;
-      white-space: nowrap;
-      pointer-events: none;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) translateX(0);
-      }
-      100% {
-        transform: translateY(-100vh) translateX(100vw);
-      }
-    }
-
-    header {
-      background-color: #2a003f;
-      color: #fff;
       text-align: center;
       padding: 20px;
-      font-size: 36px;
-      letter-spacing: 2px;
-      border-bottom: 2px solid #9e00ff;
-    }
-
-    nav {
-      background-color: #1a001f;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 12px;
-      gap: 15px;
-      border-bottom: 1px solid #fff2;
-    }
-
-    nav a {
-      color: #d4bfff;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      background-color: #3a0055;
-      transition: 0.3s;
-      font-size: 18px;
-    }
-
-    nav a:hover {
-      background-color: #8a2be2;
-      color: #fff;
-    }
-
-    section {
-      display: none;
-      padding: 30px;
-      text-align: center;
-    }
-
-    #inicio {
-      display: block;
     }
 
     h1 {
-      font-size: 80px;
-      color: #caa0ff;
+      font-size: 3em;
+      color: #e0b3ff;
+      margin-bottom: 30px;
     }
 
-    h2 {
-      font-size: 28px;
-      margin-top: 10px;
-      color: #e0d3ff;
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .humiliation-words {
-      margin-top: 25px;
-      color: #bbb;
-      font-size: 18px;
-      background-color: #1a001f88;
-      padding: 15px;
-      border-radius: 12px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.8;
+    .card-container {
+      perspective: 1000px;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-
-    li {
-      margin: 10px;
-      font-size: 20px;
-      color: #b98aff;
+    .flip-card {
+      background-color: transparent;
+      width: 250px;
+      height: 350px;
+      border: 1px solid #fff2;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #b84dff;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
       cursor: pointer;
-      transition: 0.3s;
     }
 
-    li:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #b98aff;
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      position: relative;
     }
 
-    .details {
-      margin-top: 20px;
-      padding: 20px;
-      background-color: #1a002f;
-      border-left: 5px solid #b98aff;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 10px;
-      font-size: 18px;
-      color: #f3eaff;
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: #2d003f;
+      color: white;
+    }
+
+    .flip-card-front {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flip-card-front img {
+      width: 90%;
+      height: 60%;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background-color: #1a001f;
+      font-size: 15px;
+      text-align: left;
+    }
+
+    .rating {
+      font-size: 22px;
+      color: hotpink;
     }
   </style>
 </head>
 <body>
+  <h1>💖 Grimorio de Cristel 💖</h1>
+  <div class="grid">
 
-<header>🔗 Grimorio de Cristel</header>
+    <!-- Tarjetas de personajes -->
+    <div class="card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://i.imgur.com/BimboImg.jpg" alt="Bimbo Streamer">
+            <h3>Bimbo Streamer</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Bimbo Streamer</h3>
+            <p><b>Características:</b> Sexy, adicta a los tributos, en busca de atención.</p>
+            <p><b>Personalidad:</b> Vacía, provocadora, siempre online.</p>
+            <p><b>Beneficios:</b> Adorada y mantenida.</p>
+            <p><b>Confesión:</b> "Solo existo si alguien me mira... o me paga."</p>
+            <div class="rating">💖💖💖💖💖</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<!-- Palabras flotantes -->
-<script>
-  const palabras = [
-    "sumisa", "obediente", "perra gótica", "muñeca rota", "adoradora de machos", 
-    "sissy propiedad", "objeto sexual", "criada para servir", "fantasía bimbo", 
-    "toilet girl", "adoradora de virilidad", "cashpig", "esclava feliz"
-  ];
+    <!-- Puedes duplicar la tarjeta anterior y cambiar contenido para cada personaje o fetiche -->
+    <!-- Aquí algunos ejemplos -->
 
-  for (let i = 0; i < 40; i++) {
-    const span = document.createElement('span');
-    span.className = 'floating-word';
-    span.textContent = palabras[Math.floor(Math.random() * palabras.length)];
-    span.style.top = `${Math.random() * 100}vh`;
-    span.style.left = `${Math.random() * 100}vw`;
-    span.style.fontSize = `${12 + Math.random() * 20}px`;
-    document.body.appendChild(span);
-  }
-</script>
+    <div class="card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://i.imgur.com/Cornudo.jpg" alt="Cornudito">
+            <h3>Cornudito</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Cornudito</h3>
+            <p><b>Características:</b> Obsesionado con ver a su pareja con otros.</p>
+            <p><b>Personalidad:</b> Celoso, sometido, humillado.</p>
+            <p><b>Beneficios:</b> Aprende su lugar.</p>
+            <p><b>Confesión:</b> "Mi mayor placer es ver cómo lo disfrutan... sin mí."</p>
+            <div class="rating">💖💖💖💖</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<nav>
-  <a onclick="showSection('inicio')">Inicio</a>
-  <a onclick="showSection('grimorio')">Grimorio</a>
-  <a onclick="showSection('castigos')">Castigos</a>
-  <a onclick="showSection('confesiones')">Confesiones</a>
-  <a onclick="showSection('entrena')">Entrena</a>
-  <a onclick="showSection('fetiches')">Fetiches</a>
-  <a onclick="showSection('redes')">Redes</a>
-  <a onclick="showSection('rolplay')">Rolplay</a>
-</nav>
+    <!-- Continúa con más tarjetas aquí... -->
 
-<section id="inicio">
-  <h1>SISSY</h1>
-  <h2>cristel</h2>
-  <div class="humiliation-words">
-    esclava voluntaria, adicta al control, muñeca sin cerebro, objeto de placer, 
-    sin voluntad, lista para servir, para ser usada, para ser humillada con estilo...
   </div>
-</section>
-
-<section id="fetiches">
-  <h2>💦 Fetiches de Cristel</h2>
-  <ul>
-    <li onclick="showDetails('bimbofication')">Bimboficación</li>
-    <li onclick="showDetails('toilet')">Toilet training</li>
-    <li onclick="showDetails('exhibicion')">Exhibicionismo</li>
-    <li onclick="showDetails('cashfetish')">Cash Fetish</li>
-    <li onclick="showDetails('petplay')">Petplay</li>
-    <li onclick="showDetails('control')">Control mental / sumisión total</li>
-  </ul>
-  <div id="feticheDetail" class="details"></div>
-</section>
-
-<section id="rolplay">
-  <h2>🎭 Personajes de Rolplay</h2>
-  <ul>
-    <li onclick="showCharacter('bimbo')">Bimbo Streamer</li>
-    <li onclick="showCharacter('cornudo')">Cornudito</li>
-    <li onclick="showCharacter('demon')">Sissy Demon</li>
-    <li onclick="showCharacter('hija')">Hijita de Papi</li>
-    <li onclick="showCharacter('deposito')">Depósito de Semen</li>
-    <li onclick="showCharacter('porrista')">Porrista Zorra</li>
-    <li onclick="showCharacter('novia')">Novia Tóxica</li>
-    <li onclick="showCharacter('princesa')">Sissy Princesa</li>
-    <li onclick="showCharacter('gatita')">Gatita con Plug</li>
-    <li onclick="showCharacter('secretaria')">Secretaria del Jefe Alfa</li>
-  </ul>
-  <div id="characterDetail" class="details"></div>
-</section>
-
-<script>
-  function showSection(id) {
-    document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
-    document.getElementById(id).style.display = "block";
-  }
-
-  function showDetails(fetiche) {
-    const details = {
-      bimbofication: "Convertida en una muñeca vacía: solo apariencia, deseo y obediencia. Todo por complacer.",
-      toilet: "Ser usada como objeto sin valor, receptora pasiva. Un placer prohibido que solo las más sumisas conocen.",
-      exhibicion: "Ser vista, ser mostrada, ser deseada... y humillada por ello.",
-      cashfetish: "Tu dinero no es tuyo. Es tributo para quienes te dominan.",
-      petplay: "Ladra, maúlla, gatea. No eres humana, eres mascota para jugar, servir y ser corregida.",
-      control: "Tus pensamientos ya no te pertenecen. Solo obediencia queda. Sumisión total."
-    };
-    document.getElementById("feticheDetail").innerHTML = details[fetiche] || "";
-  }
-
-  function showCharacter(char) {
-    const personajes = {
-      bimbo: "💋 Bimbo Streamer: Solo existe para entretener, enseñar su cuerpo y rogar por atención. Sus donaciones son su droga.",
-      cornudo: "🖤 Cornudito: Él mira mientras su pareja disfruta de otros. Él limpia. Él obedece.",
-      demon: "🔥 Sissy Demon: Placer infernal, rituales oscuros, invocaciones con lubricante y sumisión eterna.",
-      hija: "🎀 Hijita de Papi: Consentida y manipuladora. Finge ternura para ser adorada… y usada.",
-      deposito: "🧴 Depósito de Semen: Nunca dice no. Solo abre la boca o las piernas y espera ser llenada.",
-      porrista: "📣 Porrista Zorra: Siempre animando… pero no con pompones. El equipo ya sabe cómo la usan.",
-      novia: "💔 Novia Tóxica: Controladora, chantajista, dominante. Cada orgasmo debe ser autorizado.",
-      princesa: "👑 Sissy Princesa: Caprichosa, hermosa y cruel. Siempre quiere más… y lo consigue.",
-      gatita: "🐱 Gatita con Plug: Ronronea, se contonea, lleva su cola con orgullo. Es solo una mascota traviesa.",
-      secretaria: "🖇 Secretaria del Jefe Alfa: Siempre lista, profesional… debajo del escritorio también."
-    };
-    document.getElementById("characterDetail").innerHTML = personajes[char] || "";
-  }
-</script>
-
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  </script>
 </body>
 </html>
 
