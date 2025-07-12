@@ -27,6 +27,32 @@
       margin-bottom: 30px;
     }
 
+    nav {
+      background-color: #1a001f;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 12px;
+      gap: 15px;
+      border-bottom: 1px solid #fff2;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      color: #d4bfff;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background-color: #3a0055;
+      transition: 0.3s;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      background-color: #8a2be2;
+      color: #fff;
+    }
+
     .grid {
       display: flex;
       flex-wrap: wrap;
@@ -101,63 +127,112 @@
       font-size: 22px;
       color: hotpink;
     }
+
+    section {
+      display: none;
+    }
+
+    #inicio {
+      display: block;
+    }
   </style>
 </head>
 <body>
   <h1>💖 Grimorio de Cristel 💖</h1>
-  <div class="grid">
+  <nav>
+    <a onclick="mostrar('inicio')">Inicio</a>
+    <a onclick="mostrar('fetiches')">Fetiches</a>
+    <a onclick="mostrar('rolplay')">Rolplay</a>
+  </nav>
 
-    <!-- Tarjetas de personajes -->
-    <div class="card-container">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="https://i.imgur.com/BimboImg.jpg" alt="Bimbo Streamer">
-            <h3>Bimbo Streamer</h3>
+  <section id="inicio">
+    <h2>SISSY</h2>
+    <h3 style="color:#d8a0ff">cristel</h3>
+    <p style="max-width: 600px; margin: auto; margin-top: 20px; background-color:#1a001f88; padding: 15px; border-radius: 12px; line-height: 1.8;">
+      esclava voluntaria, adicta al control, muñeca sin cerebro, objeto de placer, sin voluntad, lista para servir, para ser usada, para ser humillada con estilo...
+    </p>
+  </section>
+
+  <section id="fetiches">
+    <div class="grid">
+      <!-- Tarjetas de fetiches -->
+      <div class="card-container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://i.imgur.com/o8xBS6r.jpeg" alt="Petplay">
+              <h3>Petplay</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Petplay</h3>
+              <p><b>Características:</b> Collar, obediencia, posturas sumisas.</p>
+              <p><b>Personalidad:</b> Mascota fiel y entrenada.</p>
+              <p><b>Beneficios:</b> Sumisión total, control mental, refuerzo de rol.</p>
+              <p><b>Confesión:</b> "Solo soy una gatita en celo esperando ordenes."</p>
+              <div class="rating">💖💖💖💖💖</div>
+            </div>
           </div>
-          <div class="flip-card-back">
-            <h3>Bimbo Streamer</h3>
-            <p><b>Características:</b> Sexy, adicta a los tributos, en busca de atención.</p>
-            <p><b>Personalidad:</b> Vacía, provocadora, siempre online.</p>
-            <p><b>Beneficios:</b> Adorada y mantenida.</p>
-            <p><b>Confesión:</b> "Solo existo si alguien me mira... o me paga."</p>
-            <div class="rating">💖💖💖💖💖</div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://i.imgur.com/6SHkvvW.jpeg" alt="Toilet Fetish">
+              <h3>Toilet Fetish</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Toilet Fetish</h3>
+              <p><b>Características:</b> Degradación extrema, uso total del cuerpo.</p>
+              <p><b>Personalidad:</b> Abandonada, sin dignidad, adoradora de los bajos deseos.</p>
+              <p><b>Beneficios:</b> Pérdida de ego, entrega sin límites.</p>
+              <p><b>Confesión:</b> "Nací para ser usada como un objeto impuro... y lo amo."</p>
+              <div class="rating">💖💖💖💖💖</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://i.imgur.com/fqWAKyi.jpeg" alt="Exhibicionismo">
+              <h3>Exhibicionismo</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Exhibicionismo</h3>
+              <p><b>Características:</b> Mostrar el cuerpo, provocar, saberse observada.</p>
+              <p><b>Personalidad:</b> Coqueta, adicta al juicio y los ojos ajenos.</p>
+              <p><b>Beneficios:</b> Placer público, validación y morbo compartido.</p>
+              <p><b>Confesión:</b> "Cada mirada me convierte en la puta que soy."</p>
+              <div class="rating">💖💖💖💖</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Puedes duplicar la tarjeta anterior y cambiar contenido para cada personaje o fetiche -->
-    <!-- Aquí algunos ejemplos -->
-
-    <div class="card-container">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="https://i.imgur.com/Cornudo.jpg" alt="Cornudito">
-            <h3>Cornudito</h3>
-          </div>
-          <div class="flip-card-back">
-            <h3>Cornudito</h3>
-            <p><b>Características:</b> Obsesionado con ver a su pareja con otros.</p>
-            <p><b>Personalidad:</b> Celoso, sometido, humillado.</p>
-            <p><b>Beneficios:</b> Aprende su lugar.</p>
-            <p><b>Confesión:</b> "Mi mayor placer es ver cómo lo disfrutan... sin mí."</p>
-            <div class="rating">💖💖💖💖</div>
-          </div>
-        </div>
-      </div>
+  <section id="rolplay">
+    <div class="grid">
+      <!-- Tarjetas de personajes (ya existentes) -->
+      <!-- Puedes duplicar y añadir más -->
     </div>
+  </section>
 
-    <!-- Continúa con más tarjetas aquí... -->
-
-  </div>
   <script>
     document.querySelectorAll('.flip-card').forEach(card => {
       card.addEventListener('click', () => {
         card.classList.toggle('flipped');
       });
     });
+
+    function mostrar(id) {
+      document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
   </script>
 </body>
 </html>
