@@ -1,165 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cristel Web</title>
+  <meta charset="UTF-8">
+  <title>Grimorio Sissy de Cristel</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: white;
-      overflow-x: hidden;
-      overflow-y: auto;
+      padding: 0;
+    }
+    header {
+      background-color: #111;
+      color: pink;
+      padding: 10px;
+      text-align: center;
+      font-size: 24px;
     }
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: black;
-      color: white;
-      padding: 15px 0;
-      z-index: 100;
+      background-color: #333;
       display: flex;
       justify-content: center;
-      gap: 30px;
-      font-size: 18px;
-      text-transform: uppercase;
-      font-weight: bold;
+      gap: 15px;
+      padding: 10px;
+      color: white;
     }
     nav a {
-      color: white;
+      color: pink;
       text-decoration: none;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: hotpink;
-      transform: scale(1.1);
-    }
-    .center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 10;
-    }
-    .title-sissy {
-      font-size: 8rem;
-      font-weight: bold;
-      color: black;
-      text-shadow: 2px 2px #ffccff;
-      letter-spacing: 5px;
-    }
-    .sub-cristel {
-      font-size: 2rem;
-      font-style: italic;
-      color: #aa00aa;
-    }
-    .seccion {
-      padding: 140px 30px 60px;
-    }
-    .fetiche {
-      background-color: #fff6fb;
-      border-left: 6px solid #cc0088;
-      margin: 10px 0;
-      padding: 15px;
-      font-size: 1.1rem;
-    }
-    .personaje {
-      background: #fdf0ff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      padding: 15px;
-      margin: 10px;
-      width: 260px;
-      text-align: center;
       cursor: pointer;
+      font-weight: bold;
     }
-    .personaje img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    .detalle-personaje {
-      margin-top: 20px;
-      background: #fff0fa;
+    section {
       padding: 20px;
-      border-left: 5px solid #cc0088;
+      display: none;
+    }
+    #inicio {
+      display: block;
+      background-image: url(''); /* Puedes añadir un fondo personalizado */
+      background-color: white;
+      text-align: center;
+    }
+    #inicio h1 {
+      font-size: 60px;
+      color: hotpink;
+    }
+    #inicio h2 {
+      font-size: 30px;
+      color: #999;
+    }
+    .humiliation-words {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 30px;
+      line-height: 1.8;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+      cursor: pointer;
+      color: hotpink;
+    }
+    .details {
+      margin-top: 15px;
+      background: #f5f5f5;
+      border-left: 5px solid hotpink;
+      padding: 10px;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#fetiches">Fetiches</a>
-    <a href="#roleplay">Roleplay</a>
-  </nav>
 
-  <div class="center" id="inicio-content">
-    <div class="title-sissy">SISSY</div>
-    <div class="sub-cristel">cristel</div>
+<header>🔗 Grimorio Sissy de Cristel</header>
+
+<nav>
+  <a onclick="showSection('inicio')">Inicio</a>
+  <a onclick="showSection('grimorio')">Grimorio</a>
+  <a onclick="showSection('castigos')">Castigos</a>
+  <a onclick="showSection('confesiones')">Confesiones</a>
+  <a onclick="showSection('entrena')">Entrena</a>
+  <a onclick="showSection('fetiches')">Fetiches</a>
+  <a onclick="showSection('redes')">Redes</a>
+  <a onclick="showSection('rolplay')">Rolplay</a>
+</nav>
+
+<section id="inicio">
+  <h1>SISSY</h1>
+  <h2>cristel</h2>
+  <div class="humiliation-words">
+    esclava, puta, juguete, usada, perra, vacía, sin dignidad, entrenada, propiedad, sin voluntad, obediente, desesperada, humillada...
   </div>
+</section>
 
-  <div id="contenido" class="seccion"></div>
+<section id="fetiches">
+  <h2>💦 Fetiches de Cristel</h2>
+  <ul>
+    <li onclick="showDetails('bimbofication')">Bimboficación</li>
+    <li onclick="showDetails('toilet')">Toilet training</li>
+    <li onclick="showDetails('exhibicion')">Exhibicionismo</li>
+    <li onclick="showDetails('cashfetish')">Cash Fetish</li>
+    <li onclick="showDetails('petplay')">Petplay</li>
+    <li onclick="showDetails('control')">Control mental / sumisión total</li>
+  </ul>
+  <div id="feticheDetail" class="details"></div>
+</section>
 
-  <script>
-    const contenido = document.getElementById("contenido");
-    const inicio = document.getElementById("inicio-content");
+<section id="rolplay">
+  <h2>🎭 Personajes de Rolplay</h2>
+  <ul>
+    <li onclick="showCharacter('bimbo')">Bimbo Streamer</li>
+    <li onclick="showCharacter('cornudo')">Cornudito</li>
+    <li onclick="showCharacter('demon')">Sissy Demon</li>
+    <li onclick="showCharacter('hija')">Hijita de Papi</li>
+    <li onclick="showCharacter('deposito')">Depósito de Semen</li>
+    <li onclick="showCharacter('porrista')">Porrista Zorra</li>
+    <li onclick="showCharacter('novia')">Novia Tóxica</li>
+    <li onclick="showCharacter('princesa')">Sissy Princesa</li>
+    <li onclick="showCharacter('gatita')">Gatita con Plug</li>
+    <li onclick="showCharacter('secretaria')">Secretaria del Jefe Alfa</li>
+  </ul>
+  <div id="characterDetail" class="details"></div>
+</section>
 
-    function mostrarSeccion(id) {
-      contenido.innerHTML = secciones[id] || "<p>Contenido no disponible</p>";
-      contenido.style.display = "block";
-      inicio.style.display = id === "inicio" ? "block" : "none";
-    }
+<script>
+  function showSection(id) {
+    document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
+    document.getElementById(id).style.display = "block";
+  }
 
-    document.querySelectorAll("nav a").forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const id = link.getAttribute("href").substring(1);
-        mostrarSeccion(id);
-      });
-    });
-
-    function crearPersonaje(nombre, frase, reglas, imagen, historia) {
-      return `
-        <div class='personaje' onclick="mostrarDetalle('${nombre}', \\`${historia}\\`)">
-          <img src="${imagen}" alt="${nombre}" />
-          <h3>${nombre}</h3>
-          <em>"${frase}"</em>
-          <ul>${reglas.map(r => `<li>${r}</li>`).join('')}</ul>
-        </div>`;
-    }
-
-    function mostrarDetalle(nombre, historia) {
-      const detalle = document.createElement("div");
-      detalle.className = "detalle-personaje";
-      detalle.innerHTML = `<h3>${nombre}</h3><p>${historia}</p>`;
-      contenido.appendChild(detalle);
-      detalle.scrollIntoView({ behavior: "smooth" });
-    }
-
-    const secciones = {
-      fetiches: `
-        <h2>💦 Fetiches de Cristel</h2>
-        <div class="fetiche">🔗 Dominación total — Soy propiedad con forma de muñeca.</div>
-        <div class="fetiche">👅 Humillación pública — Lo sucio me excita, lo privado me aburre.</div>
-        <div class="fetiche">🐷 Paypig — Pagar es mi placer, mi rol es obedecer.</div>
-        <div class="fetiche">🎀 Sissyficación profunda — Cada día más bimbo, más puta.</div>
-        <div class="fetiche">🐾 Petplay — Nací para ladrar, gatear y servir con la lengua.</div>
-        <div class="fetiche">🧽 Sirvienta obediente — Lavo, lamo, limpio, me arrastro.</div>
-      `,
-      roleplay: `
-        <h2>🎭 Personajes para Roleplay</h2>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;">
-          ${crearPersonaje("Sissy princesa mimada", "Siempre pido, siempre gimo", ["Vestido rosa obligatorio", "Hablar como niña", "Manicura diaria"], "https://i.imgur.com/UmxVYwc.jpg", "Siempre mimada, Cristel obtiene todo lo que quiere, pero paga con disciplina bimbo y castigos florales.")}
-          ${crearPersonaje("Gatita plug", "Obedezco solo con maullidos", ["Plug puesto todo el día", "Comer de cuenco", "Usar orejitas"], "https://i.imgur.com/LvHOf7b.jpg", "Cristel se arrastra como mascota entrenada, siempre húmeda, siempre en cuatro patas.")}
-          ${crearPersonaje("Porrista Zorra", "Brinco, gimo y obedezco", ["Animar a los machos", "Falda obligatoria", "Lencería siempre lista"], "https://i.imgur.com/sYQY3fN.jpg", "La más animada del equipo, usada en los camerinos y celebrada por su flexibilidad oral.")}
-        </div>
-      `
+  function showDetails(fetiche) {
+    const details = {
+      bimbofication: "Transformarte mental y físicamente en una muñeca hueca, siempre maquillada, provocativa y lista para complacer.",
+      toilet: "Ser entrenada para adorar y servir como urinario o sumisa toilet, sin límites.",
+      exhibicion: "Mostrarte en público, en redes o ante otros como la sissy que eres, sin vergüenza.",
+      cashfetish: "El placer de pagar, ser usada económicamente, tributar sin preguntar.",
+      petplay: "Comportarte como una mascota: gatita, perrita o poni. Obediente, dócil y sin derechos.",
+      control: "Ser reprogramada, obedecer órdenes, dejar de pensar. Ser propiedad."
     };
+    document.getElementById("feticheDetail").innerHTML = details[fetiche] || "";
+  }
 
-    mostrarSeccion("inicio");
-  </script>
+  function showCharacter(char) {
+    const personajes = {
+      bimbo: "<b>Bimbo Streamer</b><br>Característica: Adicta a los elogios y las donaciones.<br>Beneficio: Popularidad, poder sexual.<br>Historia: Transmitiendo en vivo mientras hace retos humillantes por subs.",
+      cornudo: "<b>Cornudito</b><br>Característica: Disfruta ver a su pareja con otros.<br>Beneficio: Castigo, humillación, obediencia.<br>Historia: Su novia lo manda a lamer condones usados.",
+      demon: "<b>Sissy Demon</b><br>Característica: Seductora, traviesa, invoca placer oscuro.<br>Beneficio: Poder místico, orgasmos prohibidos.<br>Historia: Realiza rituales para invocar machos.",
+      hija: "<b>Hijita de Papi</b><br>Característica: Consentida, manipuladora, mimada.<br>Beneficio: Regalos, control afectivo.<br>Historia: Finge ternura para manipular hombres.",
+      deposito: "<b>Depósito de Semen</b><br>Característica: Objeto, solo sirve para recibir.<br>Beneficio: Ser usada, vaciada, humillada.<br>Historia: Encerrada en una jaula esperando al próximo.",
+      porrista: "<b>Porrista Zorra</b><br>Característica: Popular, provocadora, usada por todo el equipo.<br>Beneficio: Popularidad y degradación.<br>Historia: Obligada a “animar” al equipo después del partido.",
+      novia: "<b>Novia Tóxica</b><br>Característica: Celosa, dominante, chantajista.<br>Beneficio: Control absoluto.<br>Historia: Le prohíbe tener erecciones sin su permiso.",
+      princesa: "<b>Sissy Princesa</b><br>Característica: Rosa, delicada, consentida.<br>Beneficio: Trato especial, caprichos cumplidos.<br>Historia: Solo obedece a quienes la traten como una muñeca real.",
+      gatita: "<b>Gatita con Plug</b><br>Característica: Sumisa, juguetona, adora el castigo.<br>Beneficio: Mimos, dominación.<br>Historia: Usa su plug de cola cada vez que se porta mal.",
+      secretaria: "<b>Secretaria del Jefe Alfa</b><br>Característica: Sumisa, profesional, usada en la oficina.<br>Beneficio: Poder, obediencia total.<br>Historia: Hace “horas extras” bajo el escritorio."
+    };
+    document.getElementById("characterDetail").innerHTML = personajes[char] || "";
+  }
+</script>
+
 </body>
 </html>
-
