@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cristel Web</title>
   <style>
     body {
@@ -56,109 +56,35 @@
       font-style: italic;
       color: #aa00aa;
     }
-    h2 {
-      text-align: center;
-      margin-top: 100px;
-      font-size: 2rem;
-      color: #cc0088;
-    }
     .seccion {
-      padding: 120px 40px;
+      padding: 140px 30px 60px;
+    }
+    .fetiche {
+      background-color: #fff6fb;
+      border-left: 6px solid #cc0088;
+      margin: 10px 0;
+      padding: 15px;
+      font-size: 1.1rem;
     }
     .personaje {
-      width: 250px;
       background: #fdf0ff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
       padding: 15px;
-      text-align: center;
       margin: 10px;
+      width: 260px;
+      text-align: center;
+      cursor: pointer;
     }
     .personaje img {
       width: 100%;
       border-radius: 10px;
-      margin-bottom: 10px;
     }
-    .personaje h3 {
-      font-size: 1.2rem;
-      color: #aa00aa;
-    }
-    .personaje em {
-      font-size: 0.9rem;
-      color: #333;
-    }
-    .personaje ul {
-      text-align: left;
-      font-size: 0.9rem;
-      color: #444;
-    }
-    .detalle {
-      margin-top: 10px;
-      background-color: #fff0fa;
-      border-left: 4px solid #cc0088;
-      padding: 10px;
-    }
-    .fetiche {
-      background-color: #fff6fb;
-      border-left: 5px solid #cc0088;
-      margin: 10px;
-      padding: 10px;
-    }
-    .error-item {
-      background-color: #fff0fa;
-      border: 1px solid #cc0088;
-      border-radius: 10px;
-      margin: 10px;
-      padding: 15px;
-      cursor: pointer;
-      position: relative;
-    }
-    .contador {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background-color: #cc0088;
-      color: white;
-      padding: 4px 8px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-    }
-    .castigo-lista {
-      display: none;
-      padding-left: 20px;
-    }
-    .castigo {
-      background-color: #fff6fb;
-      border-left: 4px solid #cc0088;
-      margin-bottom: 10px;
-      padding: 10px;
-    }
-    #juego-castigos {
-      text-align: center;
-      margin-top: 50px;
-    }
-    #juego-castigos button {
-      background-color: #cc0088;
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      font-size: 1.2rem;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    #juego-castigos button:hover {
-      background-color: #ff66c4;
-    }
-    #castigo-aleatorio {
+    .detalle-personaje {
       margin-top: 20px;
+      background: #fff0fa;
       padding: 20px;
-      background-color: #fff0fa;
-      border-left: 6px solid #cc0088;
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      border-left: 5px solid #cc0088;
     }
   </style>
 </head>
@@ -167,10 +93,9 @@
     <a href="#inicio">Inicio</a>
     <a href="#fetiches">Fetiches</a>
     <a href="#roleplay">Roleplay</a>
-    <a href="#castigos">Castigos</a>
   </nav>
 
-  <div class="center" id="inicio">
+  <div class="center" id="inicio-content">
     <div class="title-sissy">SISSY</div>
     <div class="sub-cristel">cristel</div>
   </div>
@@ -179,9 +104,15 @@
 
   <script>
     const contenido = document.getElementById("contenido");
+    const inicio = document.getElementById("inicio-content");
 
-    const enlaces = document.querySelectorAll("nav a");
-    enlaces.forEach(link => {
+    function mostrarSeccion(id) {
+      contenido.innerHTML = secciones[id] || "<p>Contenido no disponible</p>";
+      contenido.style.display = "block";
+      inicio.style.display = id === "inicio" ? "block" : "none";
+    }
+
+    document.querySelectorAll("nav a").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
         const id = link.getAttribute("href").substring(1);
@@ -189,39 +120,46 @@
       });
     });
 
-    function mostrarSeccion(id) {
-      if (id === "inicio") {
-        contenido.innerHTML = `<div class='title-sissy'>SISSY</div><div class='sub-cristel'>cristel</div>`;
-      } else {
-        contenido.innerHTML = secciones[id] || "<p>Sección no disponible</p>";
-      }
+    function crearPersonaje(nombre, frase, reglas, imagen, historia) {
+      return `
+        <div class='personaje' onclick="mostrarDetalle('${nombre}', \\`${historia}\\`)">
+          <img src="${imagen}" alt="${nombre}" />
+          <h3>${nombre}</h3>
+          <em>"${frase}"</em>
+          <ul>${reglas.map(r => `<li>${r}</li>`).join('')}</ul>
+        </div>`;
     }
 
-    function crearPersonaje(nombre, frase, reglas, imagen, detalle) {
-      return `<div class='personaje' onclick="mostrarDetalle('${nombre.replace(/'/g, "").replace(/"/g, "")}', \\`${detalle}\\`)">
-        <img src="${imagen}" alt="${nombre}">
-        <h3>${nombre}</h3>
-        <em>"${frase}"</em>
-        <ul>${reglas.map(r => `<li>${r}</li>`).join("")}</ul>
-      </div>`;
-    }
-
-    function mostrarDetalle(nombre, detalle) {
-      const div = document.createElement("div");
-      div.className = "detalle";
-      div.innerHTML = `<h3>${nombre}</h3><p>${detalle}</p>`;
-      contenido.appendChild(div);
-      div.scrollIntoView({ behavior: "smooth" });
+    function mostrarDetalle(nombre, historia) {
+      const detalle = document.createElement("div");
+      detalle.className = "detalle-personaje";
+      detalle.innerHTML = `<h3>${nombre}</h3><p>${historia}</p>`;
+      contenido.appendChild(detalle);
+      detalle.scrollIntoView({ behavior: "smooth" });
     }
 
     const secciones = {
-      fetiches: `<h2>💦 Fetiches de Cristel</h2><div class='fetiche'>🔗 Dominación total — No pienso, solo obedezco</div><div class='fetiche'>👅 Humillación pública — Soy propiedad, y lo digo en voz alta</div><div class='fetiche'>🐷 Paypig — Tributo mi dinero porque no merezco control</div><div class='fetiche'>💄 Bimbificación — Cada día soy más hueca y más puta</div><div class='fetiche'>🐾 Petplay — Nací para gatear y ladrar</div><div class='fetiche'>🧽 Sirvienta — Sirvo limpiando, tragando, obedeciendo</div>`,
-      roleplay: `<h2>🎭 Personajes para Roleplay</h2><div style='display:flex;flex-wrap:wrap;justify-content:center;'>
-        ${crearPersonaje("Sissy princesa mimada", "👑 Siempre consentida, siempre provocadora.", ["Hablar como nena", "Pedir permiso", "Vestido rosa obligado"], "https://i.imgur.com/UmxVYwc.jpg", "Siempre mimada, pero castigada si no gime correctamente.")}
-        ${crearPersonaje("Gatita con plug", "🐾 Solo obedece, maúlla y lame.", ["Responder con 'miau'", "Caminar en cuatro patas"], "https://i.imgur.com/LvHOf7b.jpg", "Cristel se arrastra por atención, su cola vibra si se porta mal.")}
-        ${crearPersonaje("Sissy demon", "😈 Obedezco al amo infernal", ["Tatuajes simbólicos", "Ritual de invocación"], "https://i.imgur.com/sYQY3fN.jpg", "Ofrecida en sacrificio, ahora sirve eternamente como juguete oscuro.")}
-      </div>`
+      fetiches: `
+        <h2>💦 Fetiches de Cristel</h2>
+        <div class="fetiche">🔗 Dominación total — Soy propiedad con forma de muñeca.</div>
+        <div class="fetiche">👅 Humillación pública — Lo sucio me excita, lo privado me aburre.</div>
+        <div class="fetiche">🐷 Paypig — Pagar es mi placer, mi rol es obedecer.</div>
+        <div class="fetiche">🎀 Sissyficación profunda — Cada día más bimbo, más puta.</div>
+        <div class="fetiche">🐾 Petplay — Nací para ladrar, gatear y servir con la lengua.</div>
+        <div class="fetiche">🧽 Sirvienta obediente — Lavo, lamo, limpio, me arrastro.</div>
+      `,
+      roleplay: `
+        <h2>🎭 Personajes para Roleplay</h2>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;">
+          ${crearPersonaje("Sissy princesa mimada", "Siempre pido, siempre gimo", ["Vestido rosa obligatorio", "Hablar como niña", "Manicura diaria"], "https://i.imgur.com/UmxVYwc.jpg", "Siempre mimada, Cristel obtiene todo lo que quiere, pero paga con disciplina bimbo y castigos florales.")}
+          ${crearPersonaje("Gatita plug", "Obedezco solo con maullidos", ["Plug puesto todo el día", "Comer de cuenco", "Usar orejitas"], "https://i.imgur.com/LvHOf7b.jpg", "Cristel se arrastra como mascota entrenada, siempre húmeda, siempre en cuatro patas.")}
+          ${crearPersonaje("Porrista Zorra", "Brinco, gimo y obedezco", ["Animar a los machos", "Falda obligatoria", "Lencería siempre lista"], "https://i.imgur.com/sYQY3fN.jpg", "La más animada del equipo, usada en los camerinos y celebrada por su flexibilidad oral.")}
+        </div>
+      `
     };
+
+    mostrarSeccion("inicio");
   </script>
 </body>
 </html>
+
