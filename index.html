@@ -4,141 +4,165 @@
   <meta charset="UTF-8">
   <title>Grimorio Sissy de Cristel</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik+Glitch&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
     * {
-      cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1130.cur'), auto;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'EB Garamond', serif;
     }
 
     body {
-      font-family: 'Pacifico', cursive;
-      background-color: #ffe6f9;
-      color: #4a0033;
-      margin: 0;
-      padding: 0;
-      background-image: repeating-linear-gradient(
-        45deg,
-        #fff0f8 0px,
-        #fff0f8 40px,
-        #ffe6f9 40px,
-        #ffe6f9 80px
-      ),
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><text x='10' y='50' font-size='20' fill='pink' opacity='0.2'>sissy, puta, esclava, cashpig, usada, vacía, obediente, propiedad, objeto, bimbo</text></svg>");
-      background-size: cover;
+      background-color: #000;
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Fondo con palabras flotantes */
+    .floating-word {
+      position: absolute;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.08);
+      animation: float 40s linear infinite;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100vw);
+      }
     }
 
     header {
-      background-color: #ff99cc;
-      color: white;
-      padding: 15px;
+      background-color: #2a003f;
+      color: #fff;
       text-align: center;
-      font-size: 28px;
-      text-shadow: 1px 1px 2px hotpink;
+      padding: 20px;
+      font-size: 36px;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #9e00ff;
     }
 
     nav {
-      background-color: #ff66b2;
+      background-color: #1a001f;
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
-      padding: 10px;
+      justify-content: center;
+      padding: 12px;
+      gap: 15px;
+      border-bottom: 1px solid #fff2;
     }
 
     nav a {
-      color: white;
+      color: #d4bfff;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      background: hotpink;
       padding: 8px 14px;
-      border-radius: 20px;
-      box-shadow: 1px 1px 5px #800040;
-      transition: transform 0.2s;
+      border-radius: 6px;
+      background-color: #3a0055;
+      transition: 0.3s;
+      font-size: 18px;
     }
 
     nav a:hover {
-      transform: scale(1.1);
-      background: #ff1493;
+      background-color: #8a2be2;
+      color: #fff;
     }
 
     section {
-      padding: 25px;
       display: none;
+      padding: 30px;
+      text-align: center;
     }
 
     #inicio {
       display: block;
-      text-align: center;
-      color: hotpink;
-      text-shadow: 2px 2px 2px white;
     }
 
-    #inicio h1 {
-      font-size: 90px;
-      letter-spacing: 5px;
-    }
-
-    #inicio h2 {
-      font-size: 30px;
-      margin-top: -20px;
-    }
-
-    .humiliation-words {
-      font-size: 15px;
-      color: #cc0066;
-      margin-top: 20px;
-      line-height: 2;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      background: rgba(255, 255, 255, 0.6);
-      padding: 10px;
-      border-radius: 20px;
+    h1 {
+      font-size: 80px;
+      color: #caa0ff;
     }
 
     h2 {
-      font-size: 30px;
-      color: #ff3399;
-      text-shadow: 1px 1px white;
-      text-align: center;
+      font-size: 28px;
+      margin-top: 10px;
+      color: #e0d3ff;
+    }
+
+    .humiliation-words {
+      margin-top: 25px;
+      color: #bbb;
+      font-size: 18px;
+      background-color: #1a001f88;
+      padding: 15px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
     }
 
     ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
-      text-align: center;
+      margin-top: 20px;
     }
 
     li {
       margin: 10px;
-      cursor: pointer;
-      color: #cc0077;
       font-size: 20px;
-      font-weight: bold;
-      transition: transform 0.2s;
+      color: #b98aff;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
     li:hover {
-      transform: scale(1.1);
-      color: #ff3399;
+      color: #fff;
+      text-shadow: 0 0 10px #b98aff;
     }
 
     .details {
-      margin-top: 15px;
-      background: #fff0fa;
-      border-left: 5px solid hotpink;
-      padding: 15px;
-      font-size: 17px;
-      border-radius: 12px;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #1a002f;
+      border-left: 5px solid #b98aff;
       max-width: 700px;
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      font-size: 18px;
+      color: #f3eaff;
     }
   </style>
 </head>
 <body>
 
-<header>🔗 Grimorio Sissy de Cristel</header>
+<header>🔗 Grimorio de Cristel</header>
+
+<!-- Palabras flotantes -->
+<script>
+  const palabras = [
+    "sumisa", "obediente", "perra gótica", "muñeca rota", "adoradora de machos", 
+    "sissy propiedad", "objeto sexual", "criada para servir", "fantasía bimbo", 
+    "toilet girl", "adoradora de virilidad", "cashpig", "esclava feliz"
+  ];
+
+  for (let i = 0; i < 40; i++) {
+    const span = document.createElement('span');
+    span.className = 'floating-word';
+    span.textContent = palabras[Math.floor(Math.random() * palabras.length)];
+    span.style.top = `${Math.random() * 100}vh`;
+    span.style.left = `${Math.random() * 100}vw`;
+    span.style.fontSize = `${12 + Math.random() * 20}px`;
+    document.body.appendChild(span);
+  }
+</script>
 
 <nav>
   <a onclick="showSection('inicio')">Inicio</a>
@@ -155,7 +179,8 @@
   <h1>SISSY</h1>
   <h2>cristel</h2>
   <div class="humiliation-words">
-    esclava, puta, cashpig, humillada, sin dignidad, muñeca vacía, adicta al control, usada, obediente, sometida, criada para servir, sissy slut, propiedad de su macho...
+    esclava voluntaria, adicta al control, muñeca sin cerebro, objeto de placer, 
+    sin voluntad, lista para servir, para ser usada, para ser humillada con estilo...
   </div>
 </section>
 
@@ -197,28 +222,28 @@
 
   function showDetails(fetiche) {
     const details = {
-      bimbofication: "💄 Ser transformada en una muñeca hueca, adicta a la aprobación, siempre maquillada y provocativa. Solo piensa en complacer.",
-      toilet: "🚽 Ser entrenada para servir como objeto de uso total, especialmente para humillación extrema y control absoluto.",
-      exhibicion: "👀 Mostrarte como eres: puta, sumisa, propiedad. En redes, en público o en sesiones privadas.",
-      cashfetish: "💸 Obedecer con la billetera, dar tributo sin recibir, porque tu dinero no te pertenece, pertenece a tus machos.",
-      petplay: "🐾 Ser la gatita, perrita o poni perfecta. Collar, obediencia y deseo de ser castigada cuando se porta mal.",
-      control: "🧠 Dejar de pensar. Ser reprogramada. Tus pensamientos ya no son tuyos, tu cuerpo pertenece a quien lo domine."
+      bimbofication: "Convertida en una muñeca vacía: solo apariencia, deseo y obediencia. Todo por complacer.",
+      toilet: "Ser usada como objeto sin valor, receptora pasiva. Un placer prohibido que solo las más sumisas conocen.",
+      exhibicion: "Ser vista, ser mostrada, ser deseada... y humillada por ello.",
+      cashfetish: "Tu dinero no es tuyo. Es tributo para quienes te dominan.",
+      petplay: "Ladra, maúlla, gatea. No eres humana, eres mascota para jugar, servir y ser corregida.",
+      control: "Tus pensamientos ya no te pertenecen. Solo obediencia queda. Sumisión total."
     };
     document.getElementById("feticheDetail").innerHTML = details[fetiche] || "";
   }
 
   function showCharacter(char) {
     const personajes = {
-      bimbo: "💋 <b>Bimbo Streamer</b><br>Siempre online, provocando y mendigando atención. Vive para los likes, los tributos y los retos sexuales en directo.",
-      cornudo: "🖤 <b>Cornudito</b><br>Ve cómo su pareja es usada por verdaderos machos. Él solo lame las sobras.",
-      demon: "🔥 <b>Sissy Demon</b><br>Maestra de lo oscuro, invoca placeres prohibidos con rituales sissy y ofertas de su cuerpo a seres dominantes.",
-      hija: "🎀 <b>Hijita de Papi</b><br>Consentida, manipuladora, consigue lo que quiere a cambio de obediencia perversa.",
-      deposito: "🧴 <b>Depósito de Semen</b><br>Objeto viviente para recibir lo que los machos le quieran dar. No pregunta, no decide.",
-      porrista: "📣 <b>Porrista Zorra</b><br>Siempre en minifalda, animando a su equipo… en el vestuario también.",
-      novia: "💔 <b>Novia Tóxica</b><br>Controla, domina, castiga. Él ya no tiene decisión, solo permiso.",
-      princesa: "👑 <b>Sissy Princesa</b><br>Rosa, tierna, pero exigente. Solo hace lo que quiere si la miman y complacen.",
-      gatita: "🐱 <b>Gatita con Plug</b><br>Miau~ siempre lista, siempre juguetona. El plug es parte de ella, y le encanta que lo jalen.",
-      secretaria: "🖇 <b>Secretaria del Jefe Alfa</b><br>Perfecta y eficiente. Pero todos saben que su escritorio es solo el principio..."
+      bimbo: "💋 Bimbo Streamer: Solo existe para entretener, enseñar su cuerpo y rogar por atención. Sus donaciones son su droga.",
+      cornudo: "🖤 Cornudito: Él mira mientras su pareja disfruta de otros. Él limpia. Él obedece.",
+      demon: "🔥 Sissy Demon: Placer infernal, rituales oscuros, invocaciones con lubricante y sumisión eterna.",
+      hija: "🎀 Hijita de Papi: Consentida y manipuladora. Finge ternura para ser adorada… y usada.",
+      deposito: "🧴 Depósito de Semen: Nunca dice no. Solo abre la boca o las piernas y espera ser llenada.",
+      porrista: "📣 Porrista Zorra: Siempre animando… pero no con pompones. El equipo ya sabe cómo la usan.",
+      novia: "💔 Novia Tóxica: Controladora, chantajista, dominante. Cada orgasmo debe ser autorizado.",
+      princesa: "👑 Sissy Princesa: Caprichosa, hermosa y cruel. Siempre quiere más… y lo consigue.",
+      gatita: "🐱 Gatita con Plug: Ronronea, se contonea, lleva su cola con orgullo. Es solo una mascota traviesa.",
+      secretaria: "🖇 Secretaria del Jefe Alfa: Siempre lista, profesional… debajo del escritorio también."
     };
     document.getElementById("characterDetail").innerHTML = personajes[char] || "";
   }
@@ -226,3 +251,4 @@
 
 </body>
 </html>
+
