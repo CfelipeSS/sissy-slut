@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cristel | Castigos</title>
+  <title>Cristel Web</title>
   <style>
     body {
       margin: 0;
@@ -36,24 +36,82 @@
       color: hotpink;
       transform: scale(1.1);
     }
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+    }
+    .title-sissy {
+      font-size: 8rem;
+      font-weight: bold;
+      color: black;
+      text-shadow: 2px 2px #ffccff;
+      letter-spacing: 5px;
+    }
+    .sub-cristel {
+      font-size: 2rem;
+      font-style: italic;
+      color: #aa00aa;
+    }
     h2 {
       text-align: center;
       margin-top: 100px;
       font-size: 2rem;
       color: #cc0088;
     }
-    .error-item {
-      margin: 20px;
+    .seccion {
+      padding: 120px 40px;
+    }
+    .personaje {
+      width: 250px;
+      background: #fdf0ff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       padding: 15px;
+      text-align: center;
+      margin: 10px;
+    }
+    .personaje img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .personaje h3 {
+      font-size: 1.2rem;
+      color: #aa00aa;
+    }
+    .personaje em {
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .personaje ul {
+      text-align: left;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .detalle {
+      margin-top: 10px;
+      background-color: #fff0fa;
+      border-left: 4px solid #cc0088;
+      padding: 10px;
+    }
+    .fetiche {
+      background-color: #fff6fb;
+      border-left: 5px solid #cc0088;
+      margin: 10px;
+      padding: 10px;
+    }
+    .error-item {
       background-color: #fff0fa;
       border: 1px solid #cc0088;
       border-radius: 10px;
+      margin: 10px;
+      padding: 15px;
       cursor: pointer;
-      transition: 0.3s;
       position: relative;
-    }
-    .error-item:hover {
-      background-color: #ffe3f7;
     }
     .contador {
       position: absolute;
@@ -66,16 +124,14 @@
       font-size: 0.85rem;
     }
     .castigo-lista {
-      margin-top: 10px;
       display: none;
       padding-left: 20px;
     }
     .castigo {
-      margin-bottom: 10px;
-      padding: 10px;
       background-color: #fff6fb;
       border-left: 4px solid #cc0088;
-      font-size: 0.95rem;
+      margin-bottom: 10px;
+      padding: 10px;
     }
     #juego-castigos {
       text-align: center;
@@ -109,108 +165,63 @@
 <body>
   <nav>
     <a href="#inicio">Inicio</a>
-    <a href="#grimorio">Grimorio</a>
-    <a href="#castigos">Castigos</a>
-    <a href="#confesiones">Confesiones</a>
-    <a href="#entrena">Entrena</a>
     <a href="#fetiches">Fetiches</a>
-    <a href="#redes">Redes</a>
     <a href="#roleplay">Roleplay</a>
+    <a href="#castigos">Castigos</a>
   </nav>
 
-  <h2 id="castigos">🔒 Errores de la Sissy</h2>
-
-  <div id="lista-errores" style="padding: 20px 40px 40px 40px;"></div>
-
-  <div id="juego-castigos">
-    <h2>🎲 Juego de Castigos Aleatorios</h2>
-    <button onclick="castigoRandom()">Recibir Castigo</button>
-    <div id="castigo-aleatorio"></div>
+  <div class="center" id="inicio">
+    <div class="title-sissy">SISSY</div>
+    <div class="sub-cristel">cristel</div>
   </div>
 
+  <div id="contenido" class="seccion"></div>
+
   <script>
-    const errores = [
-      {
-        error: "💄 No maquillarse, ni vestirse como bimbo",
-        castigos: [
-          "💋 Escribir con labial en el espejo: 'soy fea sin maquillaje, no merezco ser vista' + foto",
-          "🖤 Video de auto-insulto en voz de bimbo, diciendo por qué te ves horrible sin maquillaje",
-          "🔮 Salir a comprar cosméticos con plugs puestos y peluca, diciendo en voz alta 'soy una bimbo básica, necesito ser embellecida'"
-        ]
-      }
-      // Puedes agregar más errores aquí
-    ];
+    const contenido = document.getElementById("contenido");
 
-    const castigosAleatorios = [
-      "🐶 Beber de un plato para perros: en 4 patas, decir: 'Gracias por mi premio, soy tu mascota obediente.'",
-      "👅 Limpieza oral del dildo sucio: 'Me tragué mis propios restos como buena sissy toilet.'",
-      "🪞 Lamer el suelo frente al espejo: 'Solo sirvo para limpiar lo que ensucian los machos.'",
-      "🔌 Plug 24h con drenaje activo: 'Estoy goteando como perra abierta y sin fondo.'",
-      "🚿 Baño humano simulado: 'Estoy lista para servir como inodoro con agujeros.'",
-      "📸 Selfies con frases como 'Boca sucia lista para tragar' o 'Sissy Toilet Verified'",
-      "🧽 Lamer superficies sucias: 'Mi lengua solo sirve para lamer restos de otros.'",
-      "🖊️ Escribir en tu piel: 'Entrada sin límite', 'Contenedor de basura.'",
-      "🥣 Desayuno con lágrimas: 'Gracias por alimentarme como recipiente sin valor.'",
-      "💋 Devoción al dildo sagrado: 'Me calla, me llena, me define.'",
-      "🪞 Vitrina Bimbo: Quedarte frente al espejo (lencería, plug, collar) como maniquí slut 15 minutos.",
-      "📸 Selfie sucia obligatoria: En posición perra, cara bimbo y frase 'Disponible para uso sucio'.",
-      "📖 Historia sissy pública: Confesión escrita o inventada tipo 'Fui usada sin dignidad, sin nombre'.",
-      "👖 Plug visible + leggins claros: Caminar en zona segura sintiéndote expuesta y feliz.",
-      "🎥 Video de puta barata: Tres poses porno, lengua afuera y frase: 'Estoy lista para servir a cualquiera'.",
-      "📚 Lectura pública de castigo: 'Soy una basura sumisa, útil solo cuando me corrigen con asco'.",
-      "📄 Falso CV sissy: 'Experta en tragar órdenes y gemir en 4 patas'.",
-      "🩷 Cartel corporal: Frases en piel como 'trapo oral' y sesión de fotos.",
-      "✉️ Carta de entrega: Dirigida a un amo anónimo: 'Tómame. Rómpeme. Devuélveme peor'.",
-      "👠 Desfile sucio: Pasarela casera narrando: 'La sissy más usada del barrio'.",
-      "🥛 Cara con 'lefa' simbólica: Leche/yogur simulando acabado con frase sucia.",
-      "🍷 Trago de sumisión: Copa con mezcla simbólica frente al espejo: 'Este trago me calla el orgullo'.",
-      "🚽 Ofrenda al inodoro: Plug, panties y collar frente al inodoro, besarlo y adorarlo.",
-      "🕳️ Bendición del agujero: 'Este agujero fue hecho para recibir más de lo que puedo procesar'.",
-      "👅 Servir como recipiente: Frente al espejo, boca abierta diciendo: 'Soy útil así'.",
-      "🐾 Paseo doméstico: Gatear con correa diciendo: 'Soy obediente, soy mascota'.",
-      "🐶 Comer como mascota: Toda la comida del día en bowl, sin cubiertos.",
-      "🐕‍🦺 Entrenamiento de ladridos: 3 ladridos cada 10 minutos del día.",
-      "🐕 Postura de obediencia: 5 minutos en posición perra repitiendo tu nombre como mantra.",
-      "👞 Lamer zapatos: 'Gracias por dejarme servirte con mi boca sucia'.",
-      "🩲 Panties colgantes públicos: Colgarlos como bandera y recitar poema sucio.",
-      "🎤 Entrevista sucia: Grabarte explicando tu rol sissy, tareas y límites inexistentes.",
-      "🚿 Escena en la ducha: Simular baño de fluidos y narrarlo mientras gimes o te masturbas.",
-      "🐶 Búsqueda de premios: Esconder objetos y gatear a encontrarlos como perra hambrienta.",
-      "🫙 Frasco de vergüenza: Guardar castigos en papel y cumplir uno diario sin rechistar.",
-      "🔖 Sello de entrega: Pintarte código QR o de barras y decir: 'Estoy marcada, escaneable, disponible'."
-    ];
-
-    const contenedor = document.getElementById("lista-errores");
-
-    errores.forEach((e, i) => {
-      const div = document.createElement("div");
-      div.className = "error-item";
-      div.innerHTML = `<strong>${e.error}</strong><span class="contador" id="contador-${i}">Nivel 0</span>`;
-      const castigoDiv = document.createElement("div");
-      castigoDiv.className = "castigo-lista";
-
-      e.castigos.forEach(c => {
-        const cItem = document.createElement("div");
-        cItem.className = "castigo";
-        cItem.textContent = c;
-        castigoDiv.appendChild(cItem);
+    const enlaces = document.querySelectorAll("nav a");
+    enlaces.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const id = link.getAttribute("href").substring(1);
+        mostrarSeccion(id);
       });
-
-      let contador = 0;
-      div.addEventListener("click", () => {
-        castigoDiv.style.display = castigoDiv.style.display === "none" ? "block" : "none";
-        contador++;
-        document.getElementById(`contador-${i}`).textContent = `Nivel ${contador}`;
-      });
-
-      contenedor.appendChild(div);
-      contenedor.appendChild(castigoDiv);
     });
 
-    function castigoRandom() {
-      const castigo = castigosAleatorios[Math.floor(Math.random() * castigosAleatorios.length)];
-      document.getElementById("castigo-aleatorio").innerText = castigo;
+    function mostrarSeccion(id) {
+      if (id === "inicio") {
+        contenido.innerHTML = `<div class='title-sissy'>SISSY</div><div class='sub-cristel'>cristel</div>`;
+      } else {
+        contenido.innerHTML = secciones[id] || "<p>Sección no disponible</p>";
+      }
     }
+
+    function crearPersonaje(nombre, frase, reglas, imagen, detalle) {
+      return `<div class='personaje' onclick="mostrarDetalle('${nombre.replace(/'/g, "").replace(/"/g, "")}', \\`${detalle}\\`)">
+        <img src="${imagen}" alt="${nombre}">
+        <h3>${nombre}</h3>
+        <em>"${frase}"</em>
+        <ul>${reglas.map(r => `<li>${r}</li>`).join("")}</ul>
+      </div>`;
+    }
+
+    function mostrarDetalle(nombre, detalle) {
+      const div = document.createElement("div");
+      div.className = "detalle";
+      div.innerHTML = `<h3>${nombre}</h3><p>${detalle}</p>`;
+      contenido.appendChild(div);
+      div.scrollIntoView({ behavior: "smooth" });
+    }
+
+    const secciones = {
+      fetiches: `<h2>💦 Fetiches de Cristel</h2><div class='fetiche'>🔗 Dominación total — No pienso, solo obedezco</div><div class='fetiche'>👅 Humillación pública — Soy propiedad, y lo digo en voz alta</div><div class='fetiche'>🐷 Paypig — Tributo mi dinero porque no merezco control</div><div class='fetiche'>💄 Bimbificación — Cada día soy más hueca y más puta</div><div class='fetiche'>🐾 Petplay — Nací para gatear y ladrar</div><div class='fetiche'>🧽 Sirvienta — Sirvo limpiando, tragando, obedeciendo</div>`,
+      roleplay: `<h2>🎭 Personajes para Roleplay</h2><div style='display:flex;flex-wrap:wrap;justify-content:center;'>
+        ${crearPersonaje("Sissy princesa mimada", "👑 Siempre consentida, siempre provocadora.", ["Hablar como nena", "Pedir permiso", "Vestido rosa obligado"], "https://i.imgur.com/UmxVYwc.jpg", "Siempre mimada, pero castigada si no gime correctamente.")}
+        ${crearPersonaje("Gatita con plug", "🐾 Solo obedece, maúlla y lame.", ["Responder con 'miau'", "Caminar en cuatro patas"], "https://i.imgur.com/LvHOf7b.jpg", "Cristel se arrastra por atención, su cola vibra si se porta mal.")}
+        ${crearPersonaje("Sissy demon", "😈 Obedezco al amo infernal", ["Tatuajes simbólicos", "Ritual de invocación"], "https://i.imgur.com/sYQY3fN.jpg", "Ofrecida en sacrificio, ahora sirve eternamente como juguete oscuro.")}
+      </div>`
+    };
   </script>
 </body>
 </html>
