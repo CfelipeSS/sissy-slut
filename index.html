@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio | Cristel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristel | Castigos</title>
   <style>
     body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: white;
-  overflow-x: hidden; 
-  overflow-y: auto;  
-
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
     nav {
       position: fixed;
       top: 0;
@@ -27,83 +27,86 @@
       text-transform: uppercase;
       font-weight: bold;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       transition: 0.3s;
     }
-
     nav a:hover {
       color: hotpink;
       transform: scale(1.1);
     }
-
-    .center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    h2 {
       text-align: center;
-      z-index: 10;
-    }
-
-    .title-sissy {
-      font-size: 8rem;
-      font-weight: bold;
-      color: black;
-      text-shadow: 2px 2px #ffccff;
-      letter-spacing: 5px;
-    }
-
-    .sub-cristel {
+      margin-top: 100px;
       font-size: 2rem;
-      font-style: italic;
-      color: #aa00aa;
+      color: #cc0088;
     }
-
-    .floating-word {
+    .error-item {
+      margin: 20px;
+      padding: 15px;
+      background-color: #fff0fa;
+      border: 1px solid #cc0088;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+    }
+    .error-item:hover {
+      background-color: #ffe3f7;
+    }
+    .contador {
       position: absolute;
-      font-size: 2rem;
-      font-weight: bold;
-      color: black;
-      opacity: 0.08;
-      animation: float 20s linear infinite;
-      pointer-events: none;
-      user-select: none;
+      top: 10px;
+      right: 15px;
+      background-color: #cc0088;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      font-size: 0.85rem;
     }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) translateX(0) rotate(0deg);
-        opacity: 0.1;
-      }
-      50% {
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-120vh) translateX(40px) rotate(360deg);
-        opacity: 0;
-      }
+    .castigo-lista {
+      margin-top: 10px;
+      display: none;
+      padding-left: 20px;
     }
-
-    @media (max-width: 600px) {
-      .title-sissy {
-        font-size: 4rem;
-      }
-      .sub-cristel {
-        font-size: 1.2rem;
-      }
-      nav {
-        flex-wrap: wrap;
-        font-size: 14px;
-      }
+    .castigo {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #fff6fb;
+      border-left: 4px solid #cc0088;
+      font-size: 0.95rem;
+    }
+    #juego-castigos {
+      text-align: center;
+      margin-top: 50px;
+    }
+    #juego-castigos button {
+      background-color: #cc0088;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #juego-castigos button:hover {
+      background-color: #ff66c4;
+    }
+    #castigo-aleatorio {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff0fa;
+      border-left: 6px solid #cc0088;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
-  <audio id="sissySound" src="gemido.mp3" preload="auto"></audio>
-
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#grimorio">Grimorio</a>
@@ -115,106 +118,98 @@
     <a href="#roleplay">Roleplay</a>
   </nav>
 
-  <div class="center">
-    <div class="title-sissy">SISSY</div>
-    <div class="sub-cristel">cristel</div>
+  <h2 id="castigos">🔒 Errores de la Sissy</h2>
+
+  <div id="lista-errores" style="padding: 20px 40px 40px 40px;"></div>
+
+  <div id="juego-castigos">
+    <h2>🎲 Juego de Castigos Aleatorios</h2>
+    <button onclick="castigoRandom()">Recibir Castigo</button>
+    <div id="castigo-aleatorio"></div>
   </div>
 
-  <div id="contenido" class="seccion" style="padding: 100px 30px; display: none;"></div>
-
   <script>
-    const sonido = document.getElementById("sissySound");
-    const enlaces = document.querySelectorAll("nav a");
-    const contenido = document.getElementById("contenido");
-
-    enlaces.forEach(link => {
-      link.addEventListener("mouseenter", () => {
-        sonido.currentTime = 0;
-        sonido.play();
-      });
-    });
-
-    function crearPersonaje(nombre, frase, reglas, imagen) {
-      return `
-        <div style="width: 250px; background: #fdf0ff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 15px; text-align: center;">
-          <img src="${imagen}" alt="${nombre}" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
-          <h3 style="font-size: 1.2rem; color: #aa00aa;">${nombre}</h3>
-          <em style="font-size: 0.9rem; color: #333;">"${frase}"</em>
-          <ul style="text-align: left; margin-top: 10px; font-size: 0.9rem; color: #444;">
-            ${reglas.map(r => `<li>🔒 ${r}</li>`).join("")}
-          </ul>
-        </div>
-      `;
-    }
-
-    const secciones = {
-      fetiches: `
-        <h2>💦 Fetiches de Cristel</h2>
-        <ul style="line-height: 2em; font-size: 1.2rem;">
-          <li>🔗 Dominación total</li>
-          <li>👅 Humillación pública</li>
-          <li>🐷 Paypig y tributos</li>
-          <li>🎀 Sissyficación profunda</li>
-          <li>💋 Adoración de pies</li>
-          <li>🐾 Petplay</li>
-          <li>🖤 BDSM suave</li>
-          <li>💦 Face-sitting</li>
-          <li>🩸 Dirty talk</li>
-          <li>👠 Moda bimbo gótica</li>
-          <li>🔮 Control mental</li>
-          <li>📸 Exhibicionismo</li>
-          <li>🎧 Audio-mantras</li>
-          <li>💄 Ruletas de castigo</li>
-          <li>🧷 Plug training</li>
-          <li>🧽 Tareas de sirvienta</li>
-        </ul>
-      `,
-      roleplay: `
-        <h2>🎭 Elige tu personaje sissy</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-          ${crearPersonaje("Sissy princesa mimada", "👑 Siempre consentida, siempre provocadora.", ["Hablar solo como una nena tierna", "Decir 'Daddy' cada 5 minutos", "Pedir permiso hasta para respirar"], "https://i.imgur.com/UmxVYwc.jpg")}
-          ${crearPersonaje("Gatita con plug", "🐾 Miau... soy solo una mascota que gime.", ["Caminar en cuatro patas", "Responder solo con 'miau'", "Llevar siempre un collar visible"], "https://i.imgur.com/LvHOf7b.jpg")}
-          ${crearPersonaje("Esclava de grimorio", "🕯️ Fuiste invocada para obedecer rituales oscuros.", ["Repetir mantras", "Obedecer al amo sin preguntar", "Escribir confesiones en tu diario"], "https://i.imgur.com/CLjDWQK.jpg")}
-          ${crearPersonaje("Criada del calabozo", "🧽 Limpia con la lengua, agradece cada castigo.", ["Vestida con uniforme", "Castigo si dejas algo sucio", "Fingir acento francés de sumisión"], "https://i.imgur.com/fGhnLqL.jpg")}
-          ${crearPersonaje("Secretaria del jefe alfa", "💼 Siempre agachada, siempre disponible.", ["Tacones obligatorios", "Llamar al jefe 'Señor'", "Estar siempre lista debajo del escritorio"], "https://i.imgur.com/B0Be2Ka.jpg")}
-          ${crearPersonaje("Bimbo streamer", "📸 En vivo para provocar, obedecer y abrir.", ["Transmitir tu rutina sissy", "Hablar como bimbo hipersexualizada", "Mostrar tus juguetes sin pudor"], "https://i.imgur.com/NsHsyhK.jpg")}
-          ${crearPersonaje("Cornudito humillado", "🕵️‍♂️ Tu placer es mirar cómo otros te superan.", ["Admirar al macho alfa", "Confesar tus celos", "Aplaudir después del uso"], "https://i.imgur.com/kPoPUwE.jpg")}
-          ${crearPersonaje("Sissy demon", "😈 Hecha para obedecer a tu amo infernal.", ["Pintarte símbolos", "Obedecer sin rechistar", "Recitar tus votos demoníacos"], "https://i.imgur.com/sYQY3fN.jpg")}
-          ${crearPersonaje("Hijita de papi", "🎀 Solo quiere atención y castigos.", ["Hablar como niña", "Decir 'papi' todo el tiempo", "Portarse mal para castigo"], "https://i.imgur.com/6p9BZcP.jpg")}
-          ${crearPersonaje("Depósito de semen", "💦 No piensas, solo tragas.", ["Repetir: 'soy solo un depósito'", "No hablar sin permiso", "Abrir siempre que se te ordene"], "https://i.imgur.com/jhfTeuN.jpg")}
-          ${crearPersonaje("Porrista zorra", "📣 ¡Dame una D-D-Y!", ["Vestir uniforme", "Bailar provocadora", "Animar al macho alfa"], "https://i.imgur.com/mH80ClR.jpg")}
-          ${crearPersonaje("Novia tóxica", "💔 Suplica, llora, pero siempre vuelve.", ["Celos fingidos", "Revisar el móvil del amo", "Llorar si no te usan"], "https://i.imgur.com/NXp6oUM.jpg")}
-        </div>
-      `
-    };
-
-    enlaces.forEach(link => {
-      link.addEventListener("click", e => {
-        const id = e.target.getAttribute("href").replace("#", "");
-        if (secciones[id]) {
-          e.preventDefault();
-          contenido.innerHTML = secciones[id];
-          contenido.style.display = "block";
-          document.querySelector('.center').style.display = 'none';
-        }
-      });
-    });
-
-    const palabras = [
-      "sissy", "sumisa", "obediente", "paypig", "puta", "humillada",
-      "juguete", "pet", "esclava", "objeto", "sin dignidad", "usada",
-      "bimbo", "zorra", "mimada", "castigada"
+    const errores = [
+      {
+        error: "💄 No maquillarse, ni vestirse como bimbo",
+        castigos: [
+          "💋 Escribir con labial en el espejo: 'soy fea sin maquillaje, no merezco ser vista' + foto",
+          "🖤 Video de auto-insulto en voz de bimbo, diciendo por qué te ves horrible sin maquillaje",
+          "🔮 Salir a comprar cosméticos con plugs puestos y peluca, diciendo en voz alta 'soy una bimbo básica, necesito ser embellecida'"
+        ]
+      }
+      // Puedes agregar más errores aquí
     ];
 
-    for (let i = 0; i < 40; i++) {
-      const word = document.createElement("div");
-      word.className = "floating-word";
-      word.textContent = palabras[Math.floor(Math.random() * palabras.length)];
-      word.style.left = `${Math.random() * 100}vw`;
-      word.style.top = `${Math.random() * 100}vh`;
-      word.style.fontSize = `${1 + Math.random() * 2}rem`;
-      word.style.animationDuration = `${15 + Math.random() * 10}s`;
-      document.body.appendChild(word);
+    const castigosAleatorios = [
+      "🐶 Beber de un plato para perros: en 4 patas, decir: 'Gracias por mi premio, soy tu mascota obediente.'",
+      "👅 Limpieza oral del dildo sucio: 'Me tragué mis propios restos como buena sissy toilet.'",
+      "🪞 Lamer el suelo frente al espejo: 'Solo sirvo para limpiar lo que ensucian los machos.'",
+      "🔌 Plug 24h con drenaje activo: 'Estoy goteando como perra abierta y sin fondo.'",
+      "🚿 Baño humano simulado: 'Estoy lista para servir como inodoro con agujeros.'",
+      "📸 Selfies con frases como 'Boca sucia lista para tragar' o 'Sissy Toilet Verified'",
+      "🧽 Lamer superficies sucias: 'Mi lengua solo sirve para lamer restos de otros.'",
+      "🖊️ Escribir en tu piel: 'Entrada sin límite', 'Contenedor de basura.'",
+      "🥣 Desayuno con lágrimas: 'Gracias por alimentarme como recipiente sin valor.'",
+      "💋 Devoción al dildo sagrado: 'Me calla, me llena, me define.'",
+      "🪞 Vitrina Bimbo: Quedarte frente al espejo (lencería, plug, collar) como maniquí slut 15 minutos.",
+      "📸 Selfie sucia obligatoria: En posición perra, cara bimbo y frase 'Disponible para uso sucio'.",
+      "📖 Historia sissy pública: Confesión escrita o inventada tipo 'Fui usada sin dignidad, sin nombre'.",
+      "👖 Plug visible + leggins claros: Caminar en zona segura sintiéndote expuesta y feliz.",
+      "🎥 Video de puta barata: Tres poses porno, lengua afuera y frase: 'Estoy lista para servir a cualquiera'.",
+      "📚 Lectura pública de castigo: 'Soy una basura sumisa, útil solo cuando me corrigen con asco'.",
+      "📄 Falso CV sissy: 'Experta en tragar órdenes y gemir en 4 patas'.",
+      "🩷 Cartel corporal: Frases en piel como 'trapo oral' y sesión de fotos.",
+      "✉️ Carta de entrega: Dirigida a un amo anónimo: 'Tómame. Rómpeme. Devuélveme peor'.",
+      "👠 Desfile sucio: Pasarela casera narrando: 'La sissy más usada del barrio'.",
+      "🥛 Cara con 'lefa' simbólica: Leche/yogur simulando acabado con frase sucia.",
+      "🍷 Trago de sumisión: Copa con mezcla simbólica frente al espejo: 'Este trago me calla el orgullo'.",
+      "🚽 Ofrenda al inodoro: Plug, panties y collar frente al inodoro, besarlo y adorarlo.",
+      "🕳️ Bendición del agujero: 'Este agujero fue hecho para recibir más de lo que puedo procesar'.",
+      "👅 Servir como recipiente: Frente al espejo, boca abierta diciendo: 'Soy útil así'.",
+      "🐾 Paseo doméstico: Gatear con correa diciendo: 'Soy obediente, soy mascota'.",
+      "🐶 Comer como mascota: Toda la comida del día en bowl, sin cubiertos.",
+      "🐕‍🦺 Entrenamiento de ladridos: 3 ladridos cada 10 minutos del día.",
+      "🐕 Postura de obediencia: 5 minutos en posición perra repitiendo tu nombre como mantra.",
+      "👞 Lamer zapatos: 'Gracias por dejarme servirte con mi boca sucia'.",
+      "🩲 Panties colgantes públicos: Colgarlos como bandera y recitar poema sucio.",
+      "🎤 Entrevista sucia: Grabarte explicando tu rol sissy, tareas y límites inexistentes.",
+      "🚿 Escena en la ducha: Simular baño de fluidos y narrarlo mientras gimes o te masturbas.",
+      "🐶 Búsqueda de premios: Esconder objetos y gatear a encontrarlos como perra hambrienta.",
+      "🫙 Frasco de vergüenza: Guardar castigos en papel y cumplir uno diario sin rechistar.",
+      "🔖 Sello de entrega: Pintarte código QR o de barras y decir: 'Estoy marcada, escaneable, disponible'."
+    ];
+
+    const contenedor = document.getElementById("lista-errores");
+
+    errores.forEach((e, i) => {
+      const div = document.createElement("div");
+      div.className = "error-item";
+      div.innerHTML = `<strong>${e.error}</strong><span class="contador" id="contador-${i}">Nivel 0</span>`;
+      const castigoDiv = document.createElement("div");
+      castigoDiv.className = "castigo-lista";
+
+      e.castigos.forEach(c => {
+        const cItem = document.createElement("div");
+        cItem.className = "castigo";
+        cItem.textContent = c;
+        castigoDiv.appendChild(cItem);
+      });
+
+      let contador = 0;
+      div.addEventListener("click", () => {
+        castigoDiv.style.display = castigoDiv.style.display === "none" ? "block" : "none";
+        contador++;
+        document.getElementById(`contador-${i}`).textContent = `Nivel ${contador}`;
+      });
+
+      contenedor.appendChild(div);
+      contenedor.appendChild(castigoDiv);
+    });
+
+    function castigoRandom() {
+      const castigo = castigosAleatorios[Math.floor(Math.random() * castigosAleatorios.length)];
+      document.getElementById("castigo-aleatorio").innerText = castigo;
     }
   </script>
 </body>
