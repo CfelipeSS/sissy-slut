@@ -2,238 +2,156 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grimorio Sissy de Cristel</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
-
     body {
-      background-color: #0d0015;
-      font-family: 'EB Garamond', serif;
-      background-image: 
-        url('https://i.imgur.com/fq4t1cz.png'), 
-        url('https://i.imgur.com/gRr8dIl.png'), 
-        url('https://i.imgur.com/YRxt3I6.png');
-      background-repeat: repeat;
-      background-position: top left, center, bottom right;
-      background-size: 150px;
+      font-family: Garamond, serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f3e5f5, #7b1fa2);
       color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
       text-align: center;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 3em;
-      color: #e0b3ff;
-      margin-bottom: 30px;
-    }
-
-    nav {
-      background-color: #1a001f;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 12px;
-      gap: 15px;
-      border-bottom: 1px solid #fff2;
-      margin-bottom: 30px;
     }
 
     nav a {
-      color: #d4bfff;
+      color: #ffc0f0;
+      margin: 0 1rem;
       text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      background-color: #3a0055;
-      transition: 0.3s;
-      font-size: 18px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
     }
 
-    nav a:hover {
-      background-color: #8a2be2;
-      color: #fff;
+    .section {
+      display: none;
+      padding: 2rem;
+    }
+
+    .active {
+      display: block;
     }
 
     .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 2rem;
     }
 
-    .card-container {
+    .card {
+      width: 250px;
+      height: 350px;
       perspective: 1000px;
     }
 
-    .flip-card {
-      background-color: transparent;
-      width: 250px;
-      height: 350px;
-      border: 1px solid #fff2;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #b84dff;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
+    .card-inner {
       position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
       cursor: pointer;
     }
 
-    .flip-card-inner {
-      width: 100%;
-      height: 100%;
-      transition: transform 1s;
-      transform-style: preserve-3d;
-      position: relative;
-    }
-
-    .flip-card.flipped .flip-card-inner {
+    .card:hover .card-inner {
       transform: rotateY(180deg);
     }
 
-    .flip-card-front, .flip-card-back {
+    .card-front, .card-back {
       position: absolute;
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
       border-radius: 15px;
-      padding: 10px;
-      box-sizing: border-box;
-      background-color: #2d003f;
-      color: white;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    .flip-card-front {
+    .card-front {
+      background-color: #fff;
+      color: #000;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
+      font-size: 1.5rem;
+      background-size: cover;
+      background-position: center;
     }
 
-    .flip-card-front img {
-      width: 90%;
-      height: 60%;
-      border-radius: 12px;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .flip-card-back {
+    .card-back {
+      background-color: #000;
+      color: #ffc0f0;
       transform: rotateY(180deg);
-      background-color: #1a001f;
-      font-size: 15px;
-      text-align: left;
+      padding: 1rem;
+      font-size: 0.9rem;
     }
 
-    .rating {
-      font-size: 22px;
-      color: hotpink;
+    h1 {
+      font-size: 3rem;
     }
 
-    section {
-      display: none;
-    }
-
-    #inicio {
-      display: block;
+    .word-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.08);
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>💖 Grimorio de Cristel 💖</h1>
-  <nav>
-    <a onclick="mostrar('inicio')">Inicio</a>
-    <a onclick="mostrar('fetiches')">Fetiches</a>
-    <a onclick="mostrar('rolplay')">Rolplay</a>
-  </nav>
+  <header>
+    <nav>
+      <a onclick="mostrar('inicio')">🔗 Inicio</a>
+      <a onclick="mostrar('fetiches')">💋 Fetiches</a>
+      <a onclick="mostrar('rolplay')">🎭 Rolplay</a>
+    </nav>
+  </header>
 
-  <section id="inicio">
-    <h2>SISSY</h2>
-    <h3 style="color:#d8a0ff">cristel</h3>
-    <p style="max-width: 600px; margin: auto; margin-top: 20px; background-color:#1a001f88; padding: 15px; border-radius: 12px; line-height: 1.8;">
-      esclava voluntaria, adicta al control, muñeca sin cerebro, objeto de placer, sin voluntad, lista para servir, para ser usada, para ser humillada con estilo...
-    </p>
-  </section>
-
-  <section id="fetiches">
-    <div class="grid">
-      <!-- Tarjetas de fetiches -->
-      <div class="card-container">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://i.imgur.com/o8xBS6r.jpeg" alt="Petplay">
-              <h3>Petplay</h3>
-            </div>
-            <div class="flip-card-back">
-              <h3>Petplay</h3>
-              <p><b>Características:</b> Collar, obediencia, posturas sumisas.</p>
-              <p><b>Personalidad:</b> Mascota fiel y entrenada.</p>
-              <p><b>Beneficios:</b> Sumisión total, control mental, refuerzo de rol.</p>
-              <p><b>Confesión:</b> "Solo soy una gatita en celo esperando ordenes."</p>
-              <div class="rating">💖💖💖💖💖</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-container">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://i.imgur.com/6SHkvvW.jpeg" alt="Toilet Fetish">
-              <h3>Toilet Fetish</h3>
-            </div>
-            <div class="flip-card-back">
-              <h3>Toilet Fetish</h3>
-              <p><b>Características:</b> Degradación extrema, uso total del cuerpo.</p>
-              <p><b>Personalidad:</b> Abandonada, sin dignidad, adoradora de los bajos deseos.</p>
-              <p><b>Beneficios:</b> Pérdida de ego, entrega sin límites.</p>
-              <p><b>Confesión:</b> "Nací para ser usada como un objeto impuro... y lo amo."</p>
-              <div class="rating">💖💖💖💖💖</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-container">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://i.imgur.com/fqWAKyi.jpeg" alt="Exhibicionismo">
-              <h3>Exhibicionismo</h3>
-            </div>
-            <div class="flip-card-back">
-              <h3>Exhibicionismo</h3>
-              <p><b>Características:</b> Mostrar el cuerpo, provocar, saberse observada.</p>
-              <p><b>Personalidad:</b> Coqueta, adicta al juicio y los ojos ajenos.</p>
-              <p><b>Beneficios:</b> Placer público, validación y morbo compartido.</p>
-              <p><b>Confesión:</b> "Cada mirada me convierte en la puta que soy."</p>
-              <div class="rating">💖💖💖💖</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="section active" id="inicio">
+    <h1>SISSY</h1>
+    <h2 style="color:#ffc0f0;">Cristel</h2>
+    <div class="word-background">
+      humillada – obediente – sumisa – juguete – esclava – muñeca – usada – puta – propiedad
     </div>
-  </section>
+  </div>
 
-  <section id="rolplay">
+  <div class="section" id="fetiches">
+    <h2>Fetiches</h2>
     <div class="grid">
-      <!-- Tarjetas de personajes (ya existentes) -->
-      <!-- Puedes duplicar y añadir más -->
-    </div>
-  </section>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('https://i.imgur.com/nYy3K2U.jpg');">
+            Petplay
+          </div>
+          <div class="card-back">
+            <h3>🐾 Petplay</h3>
+            <p>Actúas como una linda mascota obediente. Ladridos, collares, y rutinas.</p>
+            <p><strong>Confesión:</strong> Me encanta sentirme domesticada y usada como perrita de alguien.</p>
+            <p><strong>Gusto:</strong> 💗💗💗💗💗</p>
+          </div>
+        </div>
+      </div>
 
-  <script>
-    document.querySelectorAll('.flip-card').forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-      });
-    });
-
-    function mostrar(id) {
-      document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
-  </script>
-</body>
-</html>
-
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('https://i.imgur.com/nYy3K2U.jpg');">
+            Toilet Fetish
+          </div>
+          <div class="card-back">
+            <h3>🚽 Toilet Fetish</h3>
+            <p>Fetiche de sumisión extrema, donde el cuerpo es solo un objeto.</p>
+            <p><strong>Confesión:</strong> Ser usada sin dignidad es mi mayor placer.</p>
+            <p>
