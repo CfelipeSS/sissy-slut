@@ -1,212 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grimorio Sissy de Cristel</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Sissy Ideal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Garamond&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Garamond, serif;
-      background: linear-gradient(135deg, #ffb6e1, #a86ebf);
+      font-family: 'Garamond', serif;
       color: white;
+      background: url('/mnt/data/8320749d-6023-46f1-b012-21db6db0a4e6.png') no-repeat center center fixed;
+      background-size: cover;
       overflow-x: hidden;
     }
+
+    .humiliation-words {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .humiliation-words span {
+      position: absolute;
+      font-size: 1.2rem;
+      opacity: 0.2;
+      color: #fff;
+      animation: floatWords 20s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes floatWords {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      text-shadow: 2px 2px 5px #000;
+    }
+
     nav {
       display: flex;
       justify-content: center;
-      background-color: #1a001f;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem;
+      z-index: 1;
+      position: relative;
     }
+
     nav button {
-      background: transparent;
+      background: linear-gradient(to right, #d17fff, #a56eea);
       border: none;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 30px;
       color: white;
-      font-size: 1.2rem;
-      margin: 0 1rem;
       cursor: pointer;
-      transition: color 0.3s ease;
+      box-shadow: 0 0 10px #00000070;
     }
-    nav button:hover {
-      color: #ffb6e1;
-    }
-    section {
+
+    .section {
       display: none;
       padding: 2rem;
-    }
-    section.active {
-      display: block;
-    }
-    .inicio {
-      text-align: center;
-      font-size: 2rem;
-    }
-    .inicio h1 {
-      font-size: 5rem;
-      margin: 0;
-    }
-    .inicio h2 {
-      font-size: 2rem;
-      color: #ffd1ec;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      perspective: 1000px;
-      cursor: pointer;
-    }
-    .card-inner {
+      z-index: 1;
       position: relative;
-      width: 100%;
-      height: 350px;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
     }
-    .card:hover .card-inner {
-      transform: rotateY(180deg);
-    }
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border: 2px solid #fff;
-      border-radius: 15px;
-      overflow: hidden;
-      background-color: #2a0033;
-    }
-    .card-front img {
-      width: 100%;
-      height: 70%;
-      object-fit: cover;
-    }
-    .card-front h3 {
-      margin: 0;
-      padding: 1rem;
-    }
-    .card-back {
-      transform: rotateY(180deg);
-      padding: 1rem;
-      font-size: 0.95rem;
-    }
-    .meter {
-      background: #ddd;
-      border-radius: 25px;
-      overflow: hidden;
-      margin-top: 1rem;
-    }
-    .meter span {
+
+    .active {
       display: block;
-      height: 10px;
-      background: #ff69b4;
     }
   </style>
 </head>
 <body>
+  <div class="humiliation-words">
+    <span style="top:10%;left:5%;">putita</span>
+    <span style="top:20%;left:30%;">usada</span>
+    <span style="top:50%;left:10%;">objeto</span>
+    <span style="top:70%;left:50%;">zorra</span>
+    <span style="top:90%;left:80%;">sumisa</span>
+    <span style="top:30%;left:70%;">juguete</span>
+    <span style="top:60%;left:20%;">sissy sin dignidad</span>
+    <span style="top:40%;left:90%;">perra obediente</span>
+  </div>
+
+  <header>
+    <h1>LA SISSY IDEAL</h1>
+    <p>Cristel Sissy</p>
+  </header>
+
   <nav>
-    <button onclick="showSection('inicio')">🔗 Inicio</button>
-    <button onclick="showSection('fetiches')">💋 Fetiches</button>
-    <button onclick="showSection('rolplay')">🎭 Rolplay</button>
+    <button onclick="showSection('inicio')">INICIO</button>
+    <button onclick="showSection('fetiches')">FETICHES Y FANTASÍAS</button>
+    <button onclick="showSection('roleplay')">ROLEPLAY</button>
   </nav>
 
-  <section id="inicio" class="section active inicio">
-    <h1>Sissy</h1>
-    <h2>Cristel</h2>
-    <p>Muñeca obediente, depósito de placer, sumisa por destino...</p>
-  </section>
-
-  <section id="fetiches" class="section">
-    <h2>Fetiches</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://i.imgur.com/B7nV9fb.jpg" alt="Petplay">
-            <h3>Petplay</h3>
-          </div>
-          <div class="card-back">
-            <p>Ser una mascotita obediente, con correas y mimos.</p>
-            <p>Beneficios: conexión total con tu Amo.</p>
-            <p>Confesión: me encanta gatear con mi plug de colita.</p>
-            <div class="meter"><span style="width: 85%"></span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://i.imgur.com/tf7yDbw.jpg" alt="Toilet Fetish">
-            <h3>Toilet Fetish</h3>
-          </div>
-          <div class="card-back">
-            <p>Convertida en sumisa de uso total... incluso sucio.</p>
-            <p>Beneficio: entrega sin límites.</p>
-            <p>Confesión: soñar con ser urinario de mis machos.</p>
-            <div class="meter"><span style="width: 90%"></span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://i.imgur.com/Gz4CVwG.jpg" alt="Exhibicionismo">
-            <h3>Exhibicionismo</h3>
-          </div>
-          <div class="card-back">
-            <p>Mostrarme, provocar y ser vista como juguete visual.</p>
-            <p>Beneficio: empoderamiento erótico y sumisión pública.</p>
-            <p>Confesión: me excita que me vean usada y abierta.</p>
-            <div class="meter"><span style="width: 70%"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="rolplay" class="section">
-    <h2>Personajes Rolplay</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://i.imgur.com/q7EQ9sB.jpg" alt="Bimbo Streamer">
-            <h3>Bimbo Streamer</h3>
-          </div>
-          <div class="card-back">
-            <p>Provocadora, siempre en cámara, buscando donaciones y sumisión.</p>
-            <p>Beneficio: sentirme vista, deseada y controlada.</p>
-            <p>Personalidad: egocéntrica, coqueta, obediente.</p>
-            <div class="meter"><span style="width: 75%"></span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://i.imgur.com/pfNuClO.jpg" alt="Sissy Princesa">
-            <h3>Sissy Princesa</h3>
-          </div>
-          <div class="card-back">
-            <p>Rodeada de encaje, mimada y dispuesta a complacer a su Rey.</p>
-            <p>Beneficio: trato especial, castigos elegantes.</p>
-            <p>Personalidad: vanidosa, tierna, caprichosa.</p>
-            <div class="meter"><span style="width: 95%"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div id="inicio" class="section active">
+    <h2>Sissy Cristel</h2>
+    <p>Bienvenida a tu espacio de humillación, placer y sumisión total.</p>
+  </div>
+  <div id="fetiches" class="section">
+    <!-- Tarjetas de fetiches aquí -->
+    <div>🌸 Aquí van tus tarjetas de fetiches con imágenes y medidor</div>
+  </div>
+  <div id="roleplay" class="section">
+    <!-- Tarjetas de roleplay aquí -->
+    <div>😈 Aquí van tus tarjetas de personajes de rolplay</div>
+  </div>
 
   <script>
     function showSection(id) {
@@ -217,4 +131,3 @@
   </script>
 </body>
 </html>
-
