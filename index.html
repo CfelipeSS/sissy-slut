@@ -10,37 +10,30 @@
       margin: 0;
       font-family: 'Garamond', serif;
       color: white;
-      background: linear-gradient(135deg, #3a003f, #9100a0, #ff00c8);
-      background-size: 400% 400%;
-      animation: gradientMove 20s ease infinite;
+      background: linear-gradient(135deg, #ff7fe4, #a56eea);
       overflow-x: hidden;
       position: relative;
     }
 
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    .floating-decor {
+    .decoraciones {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100vw;
       height: 100vh;
+      top: 0;
+      left: 0;
       z-index: 0;
       pointer-events: none;
+      overflow: hidden;
     }
-    .floating-decor span {
+    .decoraciones span {
       position: absolute;
       font-size: 1.2rem;
-      opacity: 0.2;
+      opacity: 0.15;
       color: #fff;
-      animation: floatWords 20s linear infinite;
+      animation: flotar 25s linear infinite;
       white-space: nowrap;
     }
-    @keyframes floatWords {
+    @keyframes flotar {
       0% {transform: translateY(100vh) rotate(0deg);}
       100% {transform: translateY(-100vh) rotate(360deg);}
     }
@@ -48,13 +41,13 @@
     header {
       text-align: center;
       padding: 3rem 1rem 1rem;
+      z-index: 1;
       position: relative;
-      z-index: 2;
     }
 
     h1 {
       font-size: 3.5rem;
-      text-shadow: 2px 2px 10px #000;
+      text-shadow: 2px 2px 5px #000;
     }
 
     nav {
@@ -63,31 +56,30 @@
       flex-wrap: wrap;
       gap: 1rem;
       margin: 2rem;
-      z-index: 2;
+      z-index: 1;
       position: relative;
     }
 
     nav button {
-      background: #260027;
-      border: 2px solid #ff00c8;
+      background: linear-gradient(to right, #d17fff, #a56eea);
+      border: none;
       padding: 1rem 1.5rem;
       font-size: 1rem;
-      border-radius: 40px;
+      border-radius: 30px;
       color: white;
       cursor: pointer;
-      box-shadow: 0 0 10px #ff00c870;
-      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #00000070;
+      transition: transform 0.3s;
     }
+
     nav button:hover {
-      transform: scale(1.05);
-      background: #ff00c8;
-      color: black;
+      transform: scale(1.1);
     }
 
     .section {
       display: none;
       padding: 2rem;
-      z-index: 2;
+      z-index: 1;
       position: relative;
     }
 
@@ -95,70 +87,68 @@
       display: block;
     }
 
-    .card-container {
+    .tarjetas {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 1.5rem;
       justify-content: center;
     }
 
-    .card {
+    .tarjeta {
       width: 250px;
       height: 350px;
       perspective: 1000px;
     }
 
-    .card-inner {
+    .contenido-tarjeta {
       width: 100%;
       height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
       position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
     }
 
-    .card:hover .card-inner {
+    .tarjeta:hover .contenido-tarjeta {
       transform: rotateY(180deg);
     }
 
-    .card-front, .card-back {
+    .frente, .reverso {
       position: absolute;
       width: 100%;
       height: 100%;
-      border-radius: 20px;
       backface-visibility: hidden;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 15px #00000080;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
 
-    .card-front {
-      background: #1a001f url('https://i.imgur.com/xT9VHp3.png') center/cover;
+    .frente {
+      background: #222;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      padding: 1rem;
-      font-size: 1.5rem;
-      color: white;
+      background-size: cover;
+      background-position: center;
     }
 
-    .card-back {
-      background: #2d002e;
+    .reverso {
+      background: #000000d0;
       transform: rotateY(180deg);
       padding: 1rem;
-      color: #fff;
       font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <div class="floating-decor">
-    <span style="top:10%;left:5%">putita</span>
-    <span style="top:20%;left:30%">esclava</span>
-    <span style="top:50%;left:10%">objeto</span>
-    <span style="top:70%;left:50%">sissy sin dignidad</span>
-    <span style="top:90%;left:80%">perra obediente</span>
-    <span style="top:30%;left:70%">zorra de todos</span>
-    <span style="top:60%;left:20%">muñeca usada</span>
-    <span style="top:40%;left:90%">juguete</span>
+  <div class="decoraciones">
+    <span style="top:10%;left:5%;">putita</span>
+    <span style="top:20%;left:30%;">usada</span>
+    <span style="top:50%;left:10%;">objeto</span>
+    <span style="top:70%;left:50%;">zorra</span>
+    <span style="top:90%;left:80%;">sumisa</span>
+    <span style="top:30%;left:70%;">juguete</span>
+    <span style="top:60%;left:20%;">sin dignidad</span>
+    <span style="top:40%;left:90%;">perrita obediente</span>
   </div>
 
   <header>
@@ -179,46 +169,57 @@
 
   <div id="fetiches" class="section">
     <h2>Fetiches</h2>
-    <div class="card-container">
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">Petplay</div>
-          <div class="card-back">
-            <strong>Nombre:</strong> Petplay<br>
-            <strong>Características:</strong> sumisión animal, obediencia<br>
-            <strong>Personalidad:</strong> dócil, juguetona<br>
-            <strong>Beneficios:</strong> conecta con tu lado más básico<br>
-            <strong>🔻 Te gusta: 8/10</strong>
+    <div class="tarjetas">
+      <div class="tarjeta">
+        <div class="contenido-tarjeta">
+          <div class="frente" style="background-image: url('https://example.com/fetiche1.jpg');"></div>
+          <div class="reverso">
+            <h3>Petplay</h3>
+            <p>Característica: sumisión animal<br>Personalidad: obediente<br>Beneficios: juegos, correas y placer.<br>Me gusta: 💖💖💖💖</p>
           </div>
         </div>
       </div>
-      <!-- Puedes duplicar más tarjetas aquí -->
+      <div class="tarjeta">
+        <div class="contenido-tarjeta">
+          <div class="frente" style="background-image: url('https://example.com/fetiche2.jpg');"></div>
+          <div class="reverso">
+            <h3>Toilet</h3>
+            <p>Característica: uso extremo<br>Personalidad: humillada<br>Beneficios: entrega y control.<br>Me gusta: 💖💖💖</p>
+          </div>
+        </div>
+      </div>
+      <!-- Más tarjetas fetiche -->
     </div>
   </div>
 
   <div id="roleplay" class="section">
-    <h2>Personajes de Rol</h2>
-    <div class="card-container">
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">Maid Obediente</div>
-          <div class="card-back">
-            <strong>Nombre:</strong> Maid Obediente<br>
-            <strong>Características:</strong> sumisa, servicial, estética maid<br>
-            <strong>Personalidad:</strong> dispuesta a todo<br>
-            <strong>Beneficios:</strong> estimula la entrega y el rol profundo<br>
-            <strong>🔻 Te gusta: 9/10</strong>
+    <h2>Roleplay</h2>
+    <div class="tarjetas">
+      <div class="tarjeta">
+        <div class="contenido-tarjeta">
+          <div class="frente" style="background-image: url('https://example.com/personaje1.jpg');"></div>
+          <div class="reverso">
+            <h3>La criada Cristel</h3>
+            <p>Características: doméstica, servicial<br>Personalidad: obediente y tímida<br>Beneficios: placer por el servicio<br>Me gusta: 💖💖💖💖💖</p>
           </div>
         </div>
       </div>
-      <!-- Puedes duplicar más tarjetas aquí -->
+      <div class="tarjeta">
+        <div class="contenido-tarjeta">
+          <div class="frente" style="background-image: url('https://example.com/personaje2.jpg');"></div>
+          <div class="reverso">
+            <h3>La muñeca bimbo</h3>
+            <p>Características: superficial y coqueta<br>Personalidad: provocativa<br>Beneficios: adoración, atención<br>Me gusta: 💖💖💖💖</p>
+          </div>
+        </div>
+      </div>
+      <!-- Más tarjetas personaje -->
     </div>
   </div>
 
   <script>
     function showSection(id) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
   </script>
