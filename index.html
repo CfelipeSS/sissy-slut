@@ -197,18 +197,18 @@
       document.getElementById(id).classList.add('active');
     }
 
-    const fetiches = Array.from({length: 10}, (_, i) => ({
+    const fetiches = Array.from({length: 18}, (_, i) => ({
       titulo: `Fetiche ${i+1}`,
       descripcion: `Descripción provocativa del fetiche ${i+1}.`,
       beneficios: `Placer extremo, humillación, obediencia.`,
-      nivel: (i+1)*10
+      nivel: (i+1)*5
     }));
 
-    const personajes = Array.from({length: 10}, (_, i) => ({
+    const personajes = Array.from({length: 18}, (_, i) => ({
       titulo: `Personaje ${i+1}`,
       rol: `Amo dominante / Mascota sumisa`,
       personalidad: `Provocativa, obediente, juguetona.`,
-      nivel: (i+1)*10
+      nivel: (i+1)*5
     }));
 
     function crearTarjetas(data, contenedorId, tipo) {
@@ -235,4 +235,3 @@
   </script>
 </body>
 </html>
-
