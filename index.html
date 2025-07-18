@@ -10,20 +10,12 @@
       margin: 0;
       font-family: 'Garamond', serif;
       color: white;
-      background: linear-gradient(135deg, #ffb3f6, #d17fff, #a56eea);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      background: linear-gradient(135deg, #ff69b4, #800080);
       overflow-x: hidden;
       position: relative;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    .humiliation-words {
+    .decorations {
       position: fixed;
       top: 0;
       left: 0;
@@ -32,28 +24,43 @@
       z-index: 0;
       pointer-events: none;
     }
-    .humiliation-words span {
+
+    .decorations span {
       position: absolute;
       font-size: 1.2rem;
       opacity: 0.15;
-      color: white;
+      color: #fff;
       animation: floatWords 30s linear infinite;
       white-space: nowrap;
     }
+
+    .decorations img {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.1;
+      animation: floatIcons 25s linear infinite;
+    }
+
     @keyframes floatWords {
-      0% {transform: translateY(100vh) rotate(0deg);}
-      100% {transform: translateY(-100vh) rotate(360deg);}
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    @keyframes floatIcons {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-100vh); }
     }
 
     header {
       text-align: center;
       padding: 3rem 1rem 1rem;
-      position: relative;
       z-index: 1;
+      position: relative;
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 4rem;
       text-shadow: 2px 2px 5px #000;
     }
 
@@ -68,14 +75,19 @@
     }
 
     nav button {
-      background: linear-gradient(to right, #ff69b4, #d17fff);
+      background: linear-gradient(to right, #ff94e5, #c97cff);
       border: none;
       padding: 1rem 1.5rem;
       font-size: 1rem;
       border-radius: 30px;
       color: white;
       cursor: pointer;
-      box-shadow: 0 0 10px #00000070;
+      box-shadow: 0 0 15px #00000070;
+      transition: transform 0.2s ease;
+    }
+
+    nav button:hover {
+      transform: scale(1.1);
     }
 
     .section {
@@ -83,30 +95,33 @@
       padding: 2rem;
       z-index: 1;
       position: relative;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .active {
       display: block;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
+      margin-top: 2rem;
     }
 
     .card {
-      background-color: transparent;
-      width: 250px;
-      height: 350px;
       perspective: 1000px;
     }
 
     .card-inner {
       position: relative;
       width: 100%;
-      height: 100%;
+      height: 300px;
       transition: transform 0.8s;
       transform-style: preserve-3d;
     }
@@ -120,53 +135,61 @@
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 20px;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 20px #00000060;
+      box-shadow: 0 0 10px #00000090;
     }
 
     .card-front {
-      background-size: cover;
-      background-position: center;
+      background: #fff1fa;
+      color: #800080;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .card-front img {
+      max-width: 80%;
+      border-radius: 10px;
     }
 
     .card-back {
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
+      background: #800080;
+      color: #fff;
       transform: rotateY(180deg);
       padding: 1rem;
     }
 
     .meter {
-      height: 10px;
-      background: #ddd;
-      border-radius: 5px;
-      margin-top: 0.5rem;
+      height: 20px;
+      background: #ffb3ff;
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .meter > span {
+    .meter span {
       display: block;
       height: 100%;
-      background-color: #ff69b4;
-      border-radius: 5px;
+      background: #ff0080;
     }
   </style>
 </head>
 <body>
-  <div class="humiliation-words">
+  <div class="decorations">
     <span style="top:10%;left:5%;">putita</span>
-    <span style="top:20%;left:30%;">usada</span>
-    <span style="top:50%;left:10%;">objeto</span>
-    <span style="top:70%;left:50%;">zorra</span>
-    <span style="top:90%;left:80%;">sumisa</span>
-    <span style="top:30%;left:70%;">juguete</span>
-    <span style="top:60%;left:20%;">sissy sin dignidad</span>
-    <span style="top:40%;left:90%;">perra obediente</span>
+    <span style="top:20%;left:30%;">zorra sumisa</span>
+    <span style="top:40%;left:15%;">muñeca usada</span>
+    <span style="top:50%;left:80%;">perra de placer</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/4472/4472587.png" style="top:30%;left:10%;" />
+    <img src="https://cdn-icons-png.flaticon.com/512/4472/4472543.png" style="top:70%;left:40%;" />
+    <img src="https://cdn-icons-png.flaticon.com/512/4472/4472536.png" style="top:50%;left:90%;" />
   </div>
 
   <header>
-    <h1>LA SISSY IDEAL</h1>
-    <p>Cristel Sissy</p>
+    <h1>✨ LA SISSY IDEAL ✨</h1>
+    <p>by Cristel</p>
   </header>
 
   <nav>
@@ -176,62 +199,47 @@
   </nav>
 
   <div id="inicio" class="section active">
-    <h2>Sissy Cristel</h2>
-    <p>Bienvenida a tu espacio de humillación, placer y sumisión total.</p>
+    <h2>Bienvenida, muñequita</h2>
+    <p>Este es tu grimorio sissy donde cada fetiche, fantasía y rol te transforma.</p>
   </div>
 
   <div id="fetiches" class="section">
-    <h2>Fetiches</h2>
+    <h2>💖 Tus Fetiches Favoritos</h2>
     <div class="card-container">
       <div class="card">
         <div class="card-inner">
-          <div class="card-front" style="background-image: url('https://i.imgur.com/ZTnwvoR.jpg');"></div>
+          <div class="card-front">
+            <img src="https://example.com/lenceria.png" alt="Lencería sexy">
+            <p>Lencería</p>
+          </div>
           <div class="card-back">
-            <h3>Petplay</h3>
-            <p>Sumisión total como mascota. Rol de perrita o gatita entrenada.</p>
-            <p>Beneficios: obediencia, entrega, humillación.</p>
-            <div class="meter"><span style="width: 90%"></span></div>
+            <h3>Lencería Sissy</h3>
+            <p>La suavidad de las medias y el encaje te hacen sentir usada y divina.</p>
+            <p>Beneficios: Sumisión, feminización, excitación</p>
+            <p>Me gusta:</p>
+            <div class="meter"><span style="width: 90%;"></span></div>
           </div>
         </div>
       </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front" style="background-image: url('https://i.imgur.com/snnAi3h.jpg');"></div>
-          <div class="card-back">
-            <h3>Sissy Toilet</h3>
-            <p>Fetiche extremo de uso como objeto para placer sucio.</p>
-            <p>Beneficios: degradación, obediencia, adoración.</p>
-            <div class="meter"><span style="width: 80%"></span></div>
-          </div>
-        </div>
-      </div>
+      <!-- Puedes añadir más tarjetas aquí -->
     </div>
   </div>
 
   <div id="roleplay" class="section">
-    <h2>Personajes</h2>
+    <h2>🎭 Personajes Roleplay</h2>
     <div class="card-container">
       <div class="card">
         <div class="card-inner">
-          <div class="card-front" style="background-image: url('https://i.imgur.com/vKvVp6n.jpg');"></div>
-          <div class="card-back">
-            <h3>La Sissy Criada</h3>
-            <p>Servicial, limpia todo, da placer sin pedir nada.</p>
-            <p>Personalidad: obediente, tímida, complaciente.</p>
-            <div class="meter"><span style="width: 95%"></span></div>
+          <div class="card-front">
+            <img src="https://example.com/maid.png" alt="Criada">
+            <p>Sirvienta Humillada</p>
           </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front" style="background-image: url('https://i.imgur.com/ZX4hvTe.jpg');"></div>
           <div class="card-back">
-            <h3>La Sissy Clubera</h3>
-            <p>Provocadora, busca atención y castigos en público.</p>
-            <p>Personalidad: sexy, fiestera, descarada.</p>
-            <div class="meter"><span style="width: 85%"></span></div>
+            <h3>Sirvienta</h3>
+            <p>Obedece y limpia mientras recibe órdenes vergonzosas.</p>
+            <p>Personalidad: Obediente, pasiva, humillada</p>
+            <p>Me gusta:</p>
+            <div class="meter"><span style="width: 85%;"></span></div>
           </div>
         </div>
       </div>
