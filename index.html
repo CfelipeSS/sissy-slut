@@ -10,9 +10,17 @@
       margin: 0;
       font-family: 'Garamond', serif;
       color: white;
-      background: url('8320749d-6023-46f1-b012-21db6db0a4e6.png') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(135deg, #ffb3f6, #d17fff, #a56eea);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     .humiliation-words {
@@ -27,25 +35,21 @@
     .humiliation-words span {
       position: absolute;
       font-size: 1.2rem;
-      opacity: 0.2;
-      color: #fff;
-      animation: floatWords 20s linear infinite;
+      opacity: 0.15;
+      color: white;
+      animation: floatWords 30s linear infinite;
       white-space: nowrap;
     }
     @keyframes floatWords {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-100vh) rotate(360deg);
-      }
+      0% {transform: translateY(100vh) rotate(0deg);}
+      100% {transform: translateY(-100vh) rotate(360deg);}
     }
 
     header {
       text-align: center;
       padding: 3rem 1rem 1rem;
-      z-index: 1;
       position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -64,7 +68,7 @@
     }
 
     nav button {
-      background: linear-gradient(to right, #d17fff, #a56eea);
+      background: linear-gradient(to right, #ff69b4, #d17fff);
       border: none;
       padding: 1rem 1.5rem;
       font-size: 1rem;
@@ -83,6 +87,68 @@
 
     .active {
       display: block;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: transparent;
+      width: 250px;
+      height: 350px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px #00000060;
+    }
+
+    .card-front {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-back {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      transform: rotateY(180deg);
+      padding: 1rem;
+    }
+
+    .meter {
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+    }
+
+    .meter > span {
+      display: block;
+      height: 100%;
+      background-color: #ff69b4;
+      border-radius: 5px;
     }
   </style>
 </head>
@@ -113,13 +179,63 @@
     <h2>Sissy Cristel</h2>
     <p>Bienvenida a tu espacio de humillación, placer y sumisión total.</p>
   </div>
+
   <div id="fetiches" class="section">
-    <!-- Tarjetas de fetiches aquí -->
-    <div>🌸 Aquí van tus tarjetas de fetiches con imágenes y medidor</div>
+    <h2>Fetiches</h2>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('https://i.imgur.com/ZTnwvoR.jpg');"></div>
+          <div class="card-back">
+            <h3>Petplay</h3>
+            <p>Sumisión total como mascota. Rol de perrita o gatita entrenada.</p>
+            <p>Beneficios: obediencia, entrega, humillación.</p>
+            <div class="meter"><span style="width: 90%"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('https://i.imgur.com/snnAi3h.jpg');"></div>
+          <div class="card-back">
+            <h3>Sissy Toilet</h3>
+            <p>Fetiche extremo de uso como objeto para placer sucio.</p>
+            <p>Beneficios: degradación, obediencia, adoración.</p>
+            <div class="meter"><span style="width: 80%"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
   <div id="roleplay" class="section">
-    <!-- Tarjetas de roleplay aquí -->
-    <div>😈 Aquí van tus tarjetas de personajes de rolplay</div>
+    <h2>Personajes</h2>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('https://i.imgur.com/vKvVp6n.jpg');"></div>
+          <div class="card-back">
+            <h3>La Sissy Criada</h3>
+            <p>Servicial, limpia todo, da placer sin pedir nada.</p>
+            <p>Personalidad: obediente, tímida, complaciente.</p>
+            <div class="meter"><span style="width: 95%"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('https://i.imgur.com/ZX4hvTe.jpg');"></div>
+          <div class="card-back">
+            <h3>La Sissy Clubera</h3>
+            <p>Provocadora, busca atención y castigos en público.</p>
+            <p>Personalidad: sexy, fiestera, descarada.</p>
+            <div class="meter"><span style="width: 85%"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -131,3 +247,4 @@
   </script>
 </body>
 </html>
+
