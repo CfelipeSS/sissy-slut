@@ -10,32 +10,34 @@
       margin: 0;
       font-family: 'Garamond', serif;
       color: white;
-      background: linear-gradient(135deg, #ff7fe4, #a56eea);
+      background: linear-gradient(135deg, #ff66cc, #8e44ad);
       overflow-x: hidden;
-      position: relative;
     }
 
-    .decoraciones {
+    .humiliation-words {
       position: fixed;
-      width: 100vw;
-      height: 100vh;
       top: 0;
       left: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: 0;
       pointer-events: none;
-      overflow: hidden;
     }
-    .decoraciones span {
+    .humiliation-words span {
       position: absolute;
       font-size: 1.2rem;
-      opacity: 0.15;
+      opacity: 0.2;
       color: #fff;
-      animation: flotar 25s linear infinite;
+      animation: floatWords 20s linear infinite;
       white-space: nowrap;
     }
-    @keyframes flotar {
-      0% {transform: translateY(100vh) rotate(0deg);}
-      100% {transform: translateY(-100vh) rotate(360deg);}
+    @keyframes floatWords {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+      }
     }
 
     header {
@@ -69,11 +71,6 @@
       color: white;
       cursor: pointer;
       box-shadow: 0 0 10px #00000070;
-      transition: transform 0.3s;
-    }
-
-    nav button:hover {
-      transform: scale(1.1);
     }
 
     .section {
@@ -87,68 +84,84 @@
       display: block;
     }
 
-    .tarjetas {
+    .card-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1rem;
       justify-content: center;
     }
 
-    .tarjeta {
-      width: 250px;
-      height: 350px;
+    .card {
+      width: 200px;
+      height: 300px;
       perspective: 1000px;
     }
 
-    .contenido-tarjeta {
+    .card-inner {
       width: 100%;
       height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
       transition: transform 0.8s;
+      transform-style: preserve-3d;
+      position: relative;
     }
 
-    .tarjeta:hover .contenido-tarjeta {
+    .card:hover .card-inner {
       transform: rotateY(180deg);
     }
 
-    .frente, .reverso {
-      position: absolute;
+    .card-front, .card-back {
       width: 100%;
       height: 100%;
+      position: absolute;
       backface-visibility: hidden;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
 
-    .frente {
-      background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-size: cover;
-      background-position: center;
+    .card-front {
+      background-color: #fff;
+      color: #000;
     }
 
-    .reverso {
-      background: #000000d0;
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-back {
+      background: #2c003e;
+      color: white;
       transform: rotateY(180deg);
       padding: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    .meter {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .meter > span {
+      display: block;
+      height: 10px;
+      background-color: #ff66cc;
     }
   </style>
 </head>
 <body>
-  <div class="decoraciones">
+  <div class="humiliation-words">
     <span style="top:10%;left:5%;">putita</span>
     <span style="top:20%;left:30%;">usada</span>
     <span style="top:50%;left:10%;">objeto</span>
     <span style="top:70%;left:50%;">zorra</span>
     <span style="top:90%;left:80%;">sumisa</span>
     <span style="top:30%;left:70%;">juguete</span>
-    <span style="top:60%;left:20%;">sin dignidad</span>
-    <span style="top:40%;left:90%;">perrita obediente</span>
+    <span style="top:60%;left:20%;">sissy sin dignidad</span>
+    <span style="top:40%;left:90%;">perra obediente</span>
   </div>
 
   <header>
@@ -169,59 +182,55 @@
 
   <div id="fetiches" class="section">
     <h2>Fetiches</h2>
-    <div class="tarjetas">
-      <div class="tarjeta">
-        <div class="contenido-tarjeta">
-          <div class="frente" style="background-image: url('https://example.com/fetiche1.jpg');"></div>
-          <div class="reverso">
-            <h3>Petplay</h3>
-            <p>Característica: sumisión animal<br>Personalidad: obediente<br>Beneficios: juegos, correas y placer.<br>Me gusta: 💖💖💖💖</p>
+    <div class="card-container">
+      <!-- Repite esto con diferentes datos -->
+      " + Array(10).fill(0).map((_, i) => `
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://via.placeholder.com/200x300?text=Fetiche+${i+1}" alt="fetiche">
+          </div>
+          <div class="card-back">
+            <h3>Fetiche ${i+1}</h3>
+            <p>Descripción provocativa del fetiche ${i+1}.</p>
+            <p>Beneficios: placer extremo, humillación, obediencia.</p>
+            <div class="meter"><span style="width: ${(i+1)*10}%"></span></div>
           </div>
         </div>
       </div>
-      <div class="tarjeta">
-        <div class="contenido-tarjeta">
-          <div class="frente" style="background-image: url('https://example.com/fetiche2.jpg');"></div>
-          <div class="reverso">
-            <h3>Toilet</h3>
-            <p>Característica: uso extremo<br>Personalidad: humillada<br>Beneficios: entrega y control.<br>Me gusta: 💖💖💖</p>
-          </div>
-        </div>
-      </div>
-      <!-- Más tarjetas fetiche -->
+      `).join('') + "
     </div>
   </div>
 
   <div id="roleplay" class="section">
     <h2>Roleplay</h2>
-    <div class="tarjetas">
-      <div class="tarjeta">
-        <div class="contenido-tarjeta">
-          <div class="frente" style="background-image: url('https://example.com/personaje1.jpg');"></div>
-          <div class="reverso">
-            <h3>La criada Cristel</h3>
-            <p>Características: doméstica, servicial<br>Personalidad: obediente y tímida<br>Beneficios: placer por el servicio<br>Me gusta: 💖💖💖💖💖</p>
+    <div class="card-container">
+      <!-- Repite esto con diferentes datos -->
+      " + Array(10).fill(0).map((_, i) => `
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://via.placeholder.com/200x300?text=Personaje+${i+1}" alt="personaje">
+          </div>
+          <div class="card-back">
+            <h3>Personaje ${i+1}</h3>
+            <p>Rol: Amo dominante / Mascota sumisa.</p>
+            <p>Personalidad: provocativa, obediente, juguetona.</p>
+            <div class="meter"><span style="width: ${(i+1)*10}%"></span></div>
           </div>
         </div>
       </div>
-      <div class="tarjeta">
-        <div class="contenido-tarjeta">
-          <div class="frente" style="background-image: url('https://example.com/personaje2.jpg');"></div>
-          <div class="reverso">
-            <h3>La muñeca bimbo</h3>
-            <p>Características: superficial y coqueta<br>Personalidad: provocativa<br>Beneficios: adoración, atención<br>Me gusta: 💖💖💖💖</p>
-          </div>
-        </div>
-      </div>
-      <!-- Más tarjetas personaje -->
+      `).join('') + "
     </div>
   </div>
 
   <script>
     function showSection(id) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(s => s.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
   </script>
 </body>
 </html>
+
