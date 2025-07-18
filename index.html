@@ -197,19 +197,47 @@
       document.getElementById(id).classList.add('active');
     }
 
-    const fetiches = Array.from({length: 18}, (_, i) => ({
-      titulo: `Fetiche ${i+1}`,
-      descripcion: `Descripción provocativa del fetiche ${i+1}.`,
-      beneficios: `Placer extremo, humillación, obediencia.`,
-      nivel: (i+1)*5
-    }));
+    const fetiches = [
+      { titulo: "Chastity", descripcion: "Castidad eterna para una sissy inútil", beneficios: "Sumisión total, frustración rica", nivel: 90 },
+      { titulo: "Petplay", descripcion: "Ser una perrita entrenada y obediente", beneficios: "Juego, obediencia, adoración", nivel: 80 },
+      { titulo: "Toilet Training", descripcion: "Convertirse en el baño personal del amo", beneficios: "Humillación extrema, entrega total", nivel: 100 },
+      { titulo: "Public Humiliation", descripcion: "Exposición como sissy perra frente a otros", beneficios: "Excitación, sumisión, nervios deliciosos", nivel: 85 },
+      { titulo: "Sissy Maid", descripcion: "Servir de rodillas y vestida como puta", beneficios: "Obediencia, tareas serviles, placer en el servicio", nivel: 75 },
+      { titulo: "Deepthroat", descripcion: "Tragar hasta que las lágrimas caigan", beneficios: "Amo feliz, garganta entrenada", nivel: 90 },
+      { titulo: "Bondage", descripcion: "Ser atada, inmóvil, lista para el uso", beneficios: "Despersonalización, control", nivel: 70 },
+      { titulo: "Anal Slut", descripcion: "Solo se es útil por atrás", beneficios: "Orgasmos intensos, sensación de uso", nivel: 95 },
+      { titulo: "Cock Worship", descripcion: "Adoración sagrada al falo dominante", beneficios: "Devoción, entrega, placer del macho", nivel: 85 },
+      { titulo: "Crossdressing", descripcion: "Convertirse en lo más femenino posible", beneficios: "Belleza sissy, humillación visual", nivel: 65 },
+      { titulo: "Feminization", descripcion: "Ser transformada en lo opuesto a un macho", beneficios: "Identidad nueva, obediencia automática", nivel: 80 },
+      { titulo: "Gagged", descripcion: "Silencio forzado, sin derecho a hablar", beneficios: "Más obediente, más sexy", nivel: 60 },
+      { titulo: "Boot Worship", descripcion: "Lamer botas hasta dejarlas brillantes", beneficios: "Humillación servil, placer al amo", nivel: 75 },
+      { titulo: "Cum Eating", descripcion: "El postre que toda sissy merece", beneficios: "Degradación, entrenamiento del paladar", nivel: 90 },
+      { titulo: "Collar Wearing", descripcion: "Marca de propiedad y sumisión", beneficios: "Orgullo de esclava, status sissy", nivel: 70 },
+      { titulo: "Exposure", descripcion: "Mostrar el cuerpo de sissy sin pudor", beneficios: "Vergüenza excitante, validación", nivel: 85 },
+      { titulo: "Toys", descripcion: "Ser perforada por placer o castigo", beneficios: "Dolor rico, uso extremo", nivel: 80 },
+      { titulo: "Obedience Training", descripcion: "Programación sissy 24/7", beneficios: "Obediencia sin pensar, sumisión perfecta", nivel: 100 }
+    ];
 
-    const personajes = Array.from({length: 18}, (_, i) => ({
-      titulo: `Personaje ${i+1}`,
-      rol: `Amo dominante / Mascota sumisa`,
-      personalidad: `Provocativa, obediente, juguetona.`,
-      nivel: (i+1)*5
-    }));
+    const personajes = [
+      { titulo: "El Amo Brutal", rol: "Dom Total", personalidad: "Rudo, sin compasión, siempre dominante", nivel: 100 },
+      { titulo: "El Entrenador", rol: "Dom Coach", personalidad: "Paciencia cruel y exigencias claras", nivel: 90 },
+      { titulo: "La Domina", rol: "Dueña Superiora", personalidad: "Feminidad dominante, castiga con placer", nivel: 95 },
+      { titulo: "El Macho Alpha", rol: "Usador de sissys", personalidad: "Puro deseo, puro uso", nivel: 90 },
+      { titulo: "La Hermana Perra", rol: "Sissy Rival", personalidad: "Competitiva, envidiosa, provocadora", nivel: 80 },
+      { titulo: "El Novio Secreto", rol: "Amor y humillación", personalidad: "Romántico, pero dominante", nivel: 75 },
+      { titulo: "La Supervisora", rol: "Ama en el trabajo", personalidad: "Mandona, estricta, lujuriosa", nivel: 85 },
+      { titulo: "El Castigador", rol: "Dom cruel", personalidad: "Solo castigos, sin recompensas", nivel: 100 },
+      { titulo: "La Diablita", rol: "Sadica provocadora", personalidad: "Juguetona y despiadada", nivel: 90 },
+      { titulo: "El Fotógrafo", rol: "Expositor de sissys", personalidad: "Ama capturar cada humillación", nivel: 85 },
+      { titulo: "La Enfermera", rol: "Ama cuidadora", personalidad: "Sensual, con jeringas de castigo", nivel: 80 },
+      { titulo: "El Cliente", rol: "Pagador exigente", personalidad: "Compra placer, exige entrega", nivel: 95 },
+      { titulo: "El Dueño de Mascotas", rol: "Propietario", personalidad: "Domina con correa y croquetas", nivel: 90 },
+      { titulo: "La Diosa", rol: "Poder Absoluto", personalidad: "Todo lo que dices, haces y eres depende de ella", nivel: 100 },
+      { titulo: "El Tiktoker", rol: "Creador de vergüenza viral", personalidad: "Te expone, te convierte en meme", nivel: 85 },
+      { titulo: "La Estrella Porno", rol: "Guía sucia", personalidad: "Te enseña cómo complacer para cámara", nivel: 90 },
+      { titulo: "El Ladrón", rol: "Te quita hasta la dignidad", personalidad: "No pide permiso, te usa y ya", nivel: 95 },
+      { titulo: "El Hacker", rol: "Controlador Digital", personalidad: "Domina tus redes, tus fotos y tu destino", nivel: 100 }
+    ];
 
     function crearTarjetas(data, contenedorId, tipo) {
       const contenedor = document.getElementById(contenedorId);
