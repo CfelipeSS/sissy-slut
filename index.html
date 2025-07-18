@@ -182,46 +182,12 @@
 
   <div id="fetiches" class="section">
     <h2>Fetiches</h2>
-    <div class="card-container">
-      <!-- Repite esto con diferentes datos -->
-      " + Array(10).fill(0).map((_, i) => `
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://via.placeholder.com/200x300?text=Fetiche+${i+1}" alt="fetiche">
-          </div>
-          <div class="card-back">
-            <h3>Fetiche ${i+1}</h3>
-            <p>Descripción provocativa del fetiche ${i+1}.</p>
-            <p>Beneficios: placer extremo, humillación, obediencia.</p>
-            <div class="meter"><span style="width: ${(i+1)*10}%"></span></div>
-          </div>
-        </div>
-      </div>
-      `).join('') + "
-    </div>
+    <div class="card-container" id="fetiches-container"></div>
   </div>
 
   <div id="roleplay" class="section">
     <h2>Roleplay</h2>
-    <div class="card-container">
-      <!-- Repite esto con diferentes datos -->
-      " + Array(10).fill(0).map((_, i) => `
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://via.placeholder.com/200x300?text=Personaje+${i+1}" alt="personaje">
-          </div>
-          <div class="card-back">
-            <h3>Personaje ${i+1}</h3>
-            <p>Rol: Amo dominante / Mascota sumisa.</p>
-            <p>Personalidad: provocativa, obediente, juguetona.</p>
-            <div class="meter"><span style="width: ${(i+1)*10}%"></span></div>
-          </div>
-        </div>
-      </div>
-      `).join('') + "
-    </div>
+    <div class="card-container" id="roleplay-container"></div>
   </div>
 
   <script>
@@ -230,6 +196,42 @@
       sections.forEach(s => s.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
+
+    const fetiches = Array.from({length: 10}, (_, i) => ({
+      titulo: `Fetiche ${i+1}`,
+      descripcion: `Descripción provocativa del fetiche ${i+1}.`,
+      beneficios: `Placer extremo, humillación, obediencia.`,
+      nivel: (i+1)*10
+    }));
+
+    const personajes = Array.from({length: 10}, (_, i) => ({
+      titulo: `Personaje ${i+1}`,
+      rol: `Amo dominante / Mascota sumisa`,
+      personalidad: `Provocativa, obediente, juguetona.`,
+      nivel: (i+1)*10
+    }));
+
+    function crearTarjetas(data, contenedorId, tipo) {
+      const contenedor = document.getElementById(contenedorId);
+      contenedor.innerHTML = data.map((item, i) => `
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://via.placeholder.com/200x300?text=${encodeURIComponent(item.titulo)}" alt="${item.titulo}">
+            </div>
+            <div class="card-back">
+              <h3>${item.titulo}</h3>
+              <p>${tipo === 'fetiche' ? 'Descripción: ' + item.descripcion : 'Rol: ' + item.rol}</p>
+              <p>${tipo === 'fetiche' ? 'Beneficios: ' + item.beneficios : 'Personalidad: ' + item.personalidad}</p>
+              <div class="meter"><span style="width: ${item.nivel}%"></span></div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    crearTarjetas(fetiches, 'fetiches-container', 'fetiche');
+    crearTarjetas(personajes, 'roleplay-container', 'personaje');
   </script>
 </body>
 </html>
