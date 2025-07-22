@@ -3,58 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fetiches de Cristel</title>
+  <title>Altar de Cristel</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Work Sans', sans-serif;
-      background: #000000 url('https://cdn.pixabay.com/photo/2017/08/01/08/29/pattern-2563797_1280.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fce4ec;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+      scroll-behavior: smooth;
     }
     nav {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 1rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      gap: 20px;
+      padding: 15px;
+      z-index: 1000;
     }
     nav a {
-      color: #ff99cc;
+      color: #ffccf2;
       text-decoration: none;
-      transition: 0.3s;
+      font-weight: bold;
     }
-    nav a:hover {
-      color: #ffffff;
-      text-shadow: 0 0 5px #ff99cc;
+
+    section {
+      min-height: 100vh;
+      padding: 100px 20px 40px;
+      background-size: cover;
+      background-position: center;
     }
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      padding: 0 1rem;
-    }
-    .card {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 2px solid #ff99cc;
-      border-radius: 12px;
-      overflow: hidden;
-      perspective: 1000px;
+
+    #cristel {
+      background-image: url('https://i.imgur.com/TlnAo7J.jpeg');
       position: relative;
-      height: 300px;
+    }
+    #castigos {
+      background-image: url('https://i.imgur.com/FldmTWI.jpeg');
+    }
+    #biblia {
+      background-image: url('https://i.imgur.com/bpy2hXE.jpeg');
+    }
+    #fetiches {
+      background-image: url('https://i.imgur.com/YHx7XAg.jpeg');
+    }
+    #roleplay {
+      background-image: url('https://i.imgur.com/2EXJhSw.jpeg');
+    }
+
+    .tarjetas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .tarjeta {
+      width: 250px;
+      height: 150px;
+      perspective: 1000px;
+    }
+    .contenido-tarjeta {
+      width: 100%;
+      height: 100%;
+      background: #222;
+      color: white;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transform-style: preserve-3d;
       transition: transform 0.6s;
-      cursor: pointer;
+      position: relative;
     }
-    .card:hover {
+    .tarjeta:hover .contenido-tarjeta {
       transform: rotateY(180deg);
     }
-    .card-front, .card-back {
+    .contenido-tarjeta .frente,
+    .contenido-tarjeta .reverso {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -62,24 +94,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
-      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 15px;
     }
-    .card-front {
-      background-color: rgba(0, 0, 0, 0.5);
-      font-size: 1.5rem;
-      color: #ffccff;
-      text-align: center;
-    }
-    .card-back {
-      background-color: rgba(0, 0, 0, 0.8);
+    .contenido-tarjeta .reverso {
+      background: #ffb3ec;
+      color: #330033;
       transform: rotateY(180deg);
-      color: #ff99cc;
-      font-style: italic;
-      text-align: center;
     }
-    section {
-      scroll-margin-top: 80px;
+
+    /* Palabras flotantes */
+    #cristel::before {
+      content: "puta tonta bimbo propiedad perra pua";
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      font-size: 2em;
+      color: rgba(255, 192, 255, 0.3);
+      animation: flotar 10s infinite linear alternate;
+    }
+    @keyframes flotar {
+      0% { transform: translateY(0) translateX(0); }
+      100% { transform: translateY(-40px) translateX(30px); }
     }
   </style>
 </head>
@@ -92,34 +128,38 @@
     <a href="#roleplay">Roleplay</a>
   </nav>
 
-  <section id="fetiches" class="container">
-    <div class="card">
-      <div class="card-front">Petplay</div>
-      <div class="card-back">Me excita gatear desnuda, beber en cuenco y usar mi collar como buena mascota bimbo.</div>
-    </div>
-    <div class="card">
-      <div class="card-front">Toilet Training</div>
-      <div class="card-back">Ser usada como objeto, sin dignidad, como lo que nací para ser: una perra sin valor.</div>
-    </div>
-    <div class="card">
-      <div class="card-front">Obediencia Total</div>
-      <div class="card-back">Cada orden me excita. No pienso, solo sirvo. Estoy hecha para obedecer y complacer.</div>
-    </div>
-    <div class="card">
-      <div class="card-front">Public Exposure</div>
-      <div class="card-back">Fantasía de ser exhibida, humillada en público, deseada y dominada por todos.</div>
-    </div>
-    <div class="card">
-      <div class="card-front">Cumdump</div>
-      <div class="card-back">Ser recipiente de placer, convertida en objeto para usar y desechar. Sin límites, sin voluntad.</div>
+  <section id="cristel">
+    <h1>Bienvenida al altar de Cristel</h1>
+  </section>
+
+  <section id="castigos">
+    <h1>Castigos y Retos</h1>
+  </section>
+
+  <section id="biblia">
+    <h1>My Biblia Sissy</h1>
+  </section>
+
+  <section id="fetiches">
+    <h1>Fetiches y Fantasías</h1>
+    <div class="tarjetas">
+      <div class="tarjeta">
+        <div class="contenido-tarjeta">
+          <div class="frente">Petplay</div>
+          <div class="reverso">Me encanta que me usen como perrita obediente 🐾</div>
+        </div>
+      </div>
+      <div class="tarjeta">
+        <div class="contenido-tarjeta">
+          <div class="frente">Toilet training</div>
+          <div class="reverso">Nací para ser usada, incluso como tu retrete 💦</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="cristel"></section>
-  <section id="castigos"></section>
-  <section id="biblia"></section>
-  <section id="roleplay"></section>
+  <section id="roleplay">
+    <h1>Roleplay y Personajes</h1>
+  </section>
 </body>
 </html>
-
-
