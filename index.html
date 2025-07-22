@@ -1,196 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grimorio Sissy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fetiches de Cristel</title>
   <style>
     body {
       margin: 0;
-      font-family: Garamond, serif;
-      background: linear-gradient(135deg, #ff66cc, #9933ff);
-      color: white;
-      overflow-x: hidden;
+      font-family: 'Work Sans', sans-serif;
+      background: linear-gradient(to bottom, #2d2d2d, #000000);
+      background-image: url('https://i.imgur.com/zYcEM38.jpeg'); /* fondo sucio y collares difuminados */
+      background-size: cover;
+      background-attachment: fixed;
+      color: #fce4ec;
     }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.8);
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
       display: flex;
       justify-content: center;
-      padding: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    header nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
+      gap: 2rem;
       font-weight: bold;
-      cursor: pointer;
-      transition: color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-
-    header nav a:hover {
-      color: #ffccff;
+    nav a {
+      color: #ff99cc;
+      text-decoration: none;
+      transition: 0.3s;
     }
-
-    section {
-      display: none;
-      padding: 40px;
-      animation: fadeIn 0.5s ease;
+    nav a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 5px #ff99cc;
     }
-
-    section.active {
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
     }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
     .card {
       background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid #fff;
-      border-radius: 15px;
+      border: 2px solid #ff99cc;
+      border-radius: 12px;
       overflow: hidden;
       perspective: 1000px;
-      cursor: pointer;
       position: relative;
       height: 300px;
-    }
-
-    .card-inner {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s;
       transform-style: preserve-3d;
+      transition: transform 0.6s;
+      cursor: pointer;
     }
-
-    .card:hover .card-inner {
+    .card:hover {
       transform: rotateY(180deg);
     }
-
     .card-front, .card-back {
       position: absolute;
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 20px;
+      justify-content: center;
+      padding: 1rem;
       box-sizing: border-box;
     }
-
     .card-front {
-      background-color: rgba(255,255,255,0.2);
-      color: black;
+      background-color: rgba(0, 0, 0, 0.5);
+      font-size: 1.5rem;
+      color: #ffccff;
     }
-
     .card-back {
-      background-color: rgba(0,0,0,0.8);
-      color: white;
+      background-color: rgba(0, 0, 0, 0.8);
       transform: rotateY(180deg);
-    }
-
-    h1.title {
+      color: #ff99cc;
+      font-style: italic;
       text-align: center;
-      font-size: 3em;
-      margin-top: 30px;
-    }
-
-    .background-words {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .background-words span {
-      position: absolute;
-      font-size: 3em;
-      color: rgba(255, 255, 255, 0.05);
-      animation: float 30s linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(100vh); }
-      100% { transform: translateY(-100vh); }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#">Cristel</a>
+    <a href="#">Castigos-Retos</a>
+    <a href="#">My Biblia</a>
+    <a href="#">Fetiches-Fantasías</a>
+    <a href="#">Roleplay</a>
+  </nav>
 
-  <div class="background-words">
-    <span style="left: 10%; animation-delay: 0s;">sumisa</span>
-    <span style="left: 30%; animation-delay: 5s;">obediente</span>
-    <span style="left: 50%; animation-delay: 10s;">sissy</span>
-    <span style="left: 70%; animation-delay: 15s;">degradada</span>
-    <span style="left: 85%; animation-delay: 20s;">petplay</span>
-  </div>
-
-  <header>
-    <nav>
-      <a onclick="showSection('inicio')">Inicio</a>
-      <a onclick="showSection('fetiches')">Fetiches</a>
-      <a onclick="showSection('roleplay')">Roleplay</a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="inicio" class="active">
-      <h1 class="title">SISSY <small style="font-size: 0.4em;">Cristel</small></h1>
-    </section>
-
-    <section id="fetiches">
-      <!-- Tarjetas fetiches -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <h2>Petplay</h2>
-            <p>Nivel: 15</p>
-          </div>
-          <div class="card-back">
-            <p>Juego de rol en el que actúo como mascota, obedeciendo, usando correas y colitas.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Agrega los otros 17 fetiches aquí -->
-    </section>
-
-    <section id="roleplay">
-      <!-- Tarjetas roleplay -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <h2>Maid Sissy</h2>
-          </div>
-          <div class="card-back">
-            <p>La sirvienta obediente que limpia y complace todo lo que se le ordena, con delantal rosa y mente vacía.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Agrega los otros 17 roles aquí -->
-    </section>
-  </main>
-
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+  <section class="container">
+    <div class="card">
+      <div class="card-front">Petplay</div>
+      <div class="card-back">Me excita gatear desnuda, beber en cuenco y usar mi collar como buena mascota bimbo.</div>
+    </div>
+    <div class="card">
+      <div class="card-front">Toilet Training</div>
+      <div class="card-back">Ser usada como objeto, sin dignidad, como lo que nací para ser: una perra sin valor.</div>
+    </div>
+    <div class="card">
+      <div class="card-front">Obediencia Total</div>
+      <div class="card-back">Cada orden me excita. No pienso, solo sirvo. Estoy hecha para obedecer y complacer.</div>
+    </div>
+    <div class="card">
+      <div class="card-front">Public Exposure</div>
+      <div class="card-back">Fantasía de ser exhibida, humillada en público, deseada y dominada por todos.</div>
+    </div>
+    <div class="card">
+      <div class="card-front">Cumdump</div>
+      <div class="card-back">Ser recipiente de placer, convertida en objeto para usar y desechar. Sin límites, sin voluntad.</div>
+    </div>
+  </section>
 </body>
 </html>
-
 
