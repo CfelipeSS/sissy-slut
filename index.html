@@ -2,177 +2,172 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Página Cristel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cristel - Página Sissy</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      transition: background 0.5s ease;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background-color: #000;
+      color: #fff;
     }
 
-    nav {
+    .menu {
       display: flex;
       justify-content: center;
-      background: #1a001f;
-      padding: 1rem;
-      gap: 10px;
+      background: #2c003e;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    nav button {
-      background-color: deeppink;
+    .menu button {
+      background: #ff00cc;
+      color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 15px;
-      font-weight: bold;
+      padding: 10px 15px;
+      margin: 0 5px;
       cursor: pointer;
-      color: white;
+      font-weight: bold;
+      border-radius: 12px;
+      transition: transform 0.2s;
     }
 
-    section {
-      min-height: 100vh;
+    .menu button:hover {
+      background: #aa00aa;
+      transform: scale(1.1);
+    }
+
+    .seccion {
       display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    .active {
-      display: flex;
-    }
-
-    /* FONDOS por sección */
     #cristel {
-      background: radial-gradient(circle at top left, #ffccff, #990099);
-      position: relative;
+      background-image: url('https://i.imgur.com/TlnAo7J.jpeg');
+      background-color: #fbb1ff;
+      animation: palabras 10s infinite linear;
     }
 
-    #cristel::after {
-      content: "puta tonta pua obediente usada boba";
+    @keyframes palabras {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    #castigos-retos {
+      background-image: url('https://i.imgur.com/o1Z1GiV.jpeg');
+      background-color: #1a001f;
+    }
+
+    #my-biblia {
+      background-image: url('https://i.imgur.com/bpy2hXE.jpeg');
+      background-color: #fff0ff;
+    }
+
+    #my-biblia::after {
+      content: '♀ ♀ ♀ ♀ ♀';
+      font-size: 3rem;
+      color: #ff66cc;
       position: absolute;
-      font-size: 2rem;
-      top: 10%;
-      left: 5%;
-      color: rgba(255, 255, 255, 0.1);
-      animation: flotar 8s infinite linear;
-      white-space: nowrap;
+      top: 20px;
+      right: 20px;
     }
 
-    #castigos {
-      background: linear-gradient(to bottom right, #000000, #330033);
-      background-image: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 20px,
-        rgba(200, 0, 255, 0.2) 20px,
-        rgba(200, 0, 255, 0.2) 40px
-      );
-    }
-
-    #biblia {
-      background: linear-gradient(to bottom, white, #f5ccff, #ffccff);
-      color: black;
-    }
-
-    #biblia::before {
-      content: "♀";
-      font-size: 15rem;
-      color: rgba(255, 105, 180, 0.2);
-      position: absolute;
-      top: 20%;
-      left: 40%;
-    }
-
-    #fetiches {
-      background: repeating-radial-gradient(circle, #3a003a, #00001a 20%);
-      background-blend-mode: multiply;
+    #fetiches-fantacias {
+      background-image: url('https://i.imgur.com/YHx7XAg.jpeg');
+      background-color: #1a001f;
     }
 
     #roleplay {
-      background: linear-gradient(to right, #1a1a1a, #330033);
-    }
-
-    /* Animación flotante */
-    @keyframes flotar {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(100vw);
-      }
+      background-image: url('https://i.imgur.com/tXmy4bf.jpeg');
+      background-color: #1a0000;
     }
 
     .tarjeta {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid pink;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 10px auto;
       max-width: 600px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
+    .frases-cristel {
       font-size: 1.2rem;
+      margin-top: 10px;
+      animation: aparecer 5s infinite;
+    }
+
+    @keyframes aparecer {
+      0% { opacity: 0; }
+      25% { opacity: 1; }
+      50% { opacity: 0; }
+      75% { opacity: 1; }
+      100% { opacity: 0; }
     }
   </style>
-</head>
-<body>
-  <nav>
-    <button onclick="mostrarSeccion('cristel')">Cristel</button>
-    <button onclick="mostrarSeccion('castigos')">Castigos / Retos</button>
-    <button onclick="mostrarSeccion('biblia')">My Biblia</button>
-    <button onclick="mostrarSeccion('fetiches')">Fetiches / Fantasías</button>
-    <button onclick="mostrarSeccion('roleplay')">Roleplay</button>
-  </nav>
-
-  <section id="cristel" class="active">
-    <div class="tarjeta">
-      <h1>Cristel</h1>
-      <p>Soy tu puta boba, nacida para complacer, sumisa, decorativa, usada. Aquí comienza mi mundo rosa y sucio.</p>
-    </div>
-  </section>
-
-  <section id="castigos">
-    <div class="tarjeta">
-      <h1>Castigos y Retos</h1>
-      <p>Desde obedecer hasta ser humillada, descubre mis reglas, tareas y penitencias favoritas.</p>
-    </div>
-  </section>
-
-  <section id="biblia">
-    <div class="tarjeta">
-      <h1>My Biblia</h1>
-      <p>Mis rituales, mandamientos y hechizos bimbo. Una guía sagrada para ser una sissy perfecta.</p>
-    </div>
-  </section>
-
-  <section id="fetiches">
-    <div class="tarjeta">
-      <h1>Fetiches y Fantasías</h1>
-      <p>Lo prohibido, lo sucio, lo húmedo. Aquí se confiesan mis deseos más íntimos, tabús y fantasías toilet.</p>
-    </div>
-  </section>
-
-  <section id="roleplay">
-    <div class="tarjeta">
-      <h1>Roleplay</h1>
-      <p>Explora personajes y escenarios para tus juegos más atrevidos.</p>
-    </div>
-  </section>
-
   <script>
     function mostrarSeccion(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+      const secciones = document.querySelectorAll('.seccion');
+      secciones.forEach(seccion => {
+        seccion.style.display = 'none';
+      });
+      document.getElementById(id).style.display = 'block';
+    }
+
+    window.onload = function () {
+      mostrarSeccion('cristel');
     }
   </script>
+</head>
+<body>
+  <div class="menu">
+    <button onclick="mostrarSeccion('cristel')">Cristel</button>
+    <button onclick="mostrarSeccion('castigos-retos')">Castigos / Retos</button>
+    <button onclick="mostrarSeccion('my-biblia')">My Biblia</button>
+    <button onclick="mostrarSeccion('fetiches-fantacias')">Fetiches / Fantasías</button>
+    <button onclick="mostrarSeccion('roleplay')">Roleplay</button>
+  </div>
+
+  <div id="cristel" class="seccion">
+    <div class="tarjeta">
+      <h1 style="font-size: 3rem; color: #ff00cc;">CRISTEL 💋</h1>
+      <p class="frases-cristel">Sissy obediente, puta, tonta, pua, sumisa, bimbo, esclava, sucia, juguete, adoradora de machos...</p>
+    </div>
+  </div>
+
+  <div id="castigos-retos" class="seccion">
+    <div class="tarjeta">
+      <h2>Castigos & Retos</h2>
+      <p>Cadena tras cadena, deberás pagar tus errores, Cristel.</p>
+    </div>
+  </div>
+
+  <div id="my-biblia" class="seccion">
+    <div class="tarjeta">
+      <h2>My Biblia Sissy ♀ ♀ ♀</h2>
+      <p>Mandamientos, frases y rituales de obediencia para tu entrenamiento bimbo.</p>
+    </div>
+  </div>
+
+  <div id="fetiches-fantacias" class="seccion">
+    <div class="tarjeta">
+      <h2>Fetiches y Fantasías</h2>
+      <p>Donde todo lo sucio, atrevido y morboso se vuelve realidad.</p>
+    </div>
+  </div>
+
+  <div id="roleplay" class="seccion">
+    <div class="tarjeta">
+      <h2>Roleplay</h2>
+      <p>Explora personajes y escenarios para tus juegos más atrevidos. ✨🎀🔌</p>
+    </div>
+  </div>
 </body>
 </html>
