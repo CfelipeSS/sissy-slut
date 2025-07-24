@@ -46,18 +46,74 @@
     }
 
     /* Frases flotantes por toda la pantalla */
-    #cristel {
-      background: radial-gradient(circle at top left, #ffccff, #990099);
+   <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cristel</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffb6c1, #dda0dd, #e75480);
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
     }
 
-    #cristel .floating-text {
+    .palabra-flotante {
       position: absolute;
-      font-size: 2rem;
+      color: #ff69b4;
+      font-size: 24px;
       font-weight: bold;
-      color: rgba(255, 255, 255, 0.25);
-      animation: flotar 20s linear infinite;
+      text-shadow: 1px 1px 4px black;
+      animation: flotar 6s linear forwards;
       pointer-events: none;
     }
+
+    @keyframes flotar {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-50px) scale(1.3) rotate(10deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.9) rotate(-10deg);
+      }
+    }
+  </style>
+</head>
+<body id="cristel">
+
+<script>
+  const palabras = [
+    "slut", "puta", "tonta", "sumisa", "bimbo", "♀", "muñeca", "mascota", "obediente",
+    "sissy", "perra", "humillada", "adoradora", "pechos vacíos", "culo rosado",
+    "paypig", "sissy whore", "obediencia", "degradada", "plástica", "vagina falsa",
+    "adorable", "sexo oral", "objeto", "collar", "disponible", "♂=dueño", "♀", "♀"
+  ];
+
+  function crearPalabra() {
+    for (let i = 0; i < 4; i++) { // crea varias a la vez
+      const palabra = document.createElement("div");
+      palabra.className = "palabra-flotante";
+      palabra.innerText = palabras[Math.floor(Math.random() * palabras.length)];
+      palabra.style.top = Math.random() * window.innerHeight + "px";
+      palabra.style.left = Math.random() * window.innerWidth + "px";
+      document.body.appendChild(palabra);
+      setTimeout(() => palabra.remove(), 6000);
+    }
+  }
+
+  setInterval(crearPalabra, 400); // más frecuencia
+</script>
+
+</body>
+</html>
+
 
     .tarjeta {
       background-color: rgba(255, 255, 255, 0.1);
