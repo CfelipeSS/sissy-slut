@@ -46,96 +46,92 @@
     }
 
     /* Frases flotantes por toda la pantalla */
- <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Cristel</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background: linear-gradient(135deg, #ffb6c1, #dda0dd, #e75480);
-      height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-    }
+<style>
+/* Fondo de palabras */
+.word-cloud {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
 
-    /* 🌸 Cuadro con tu nombre y descripción */
-    .titulo-cristel {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      padding: 20px 40px;
-      border-radius: 20px;
-      font-size: 28px;
-      text-align: center;
-      z-index: 10;
-      box-shadow: 0 0 10px #ff69b4;
-    }
+.word {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #ff69b4;
+  opacity: 0.9;
+  text-shadow: 2px 2px 4px #000;
+  animation: floatUp 20s linear infinite;
+}
 
-    .palabra-flotante {
-      position: absolute;
-      color: #ff69b4;
-      font-size: 24px;
-      font-weight: bold;
-      text-shadow: 1px 1px 4px black;
-      animation: flotar 6s linear forwards;
-      pointer-events: none;
-    }
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
 
-    @keyframes flotar {
-      0% {
-        opacity: 0;
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: translateY(-50px) scale(1.3) rotate(10deg);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-100vh) scale(0.9) rotate(-10deg);
-      }
-    }
-  </style>
-</head>
-<body id="cristel">
+/* Recuadro de bienvenida */
+.header-box {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(30, 30, 30, 0.8);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #f0f;
+  text-align: center;
+  z-index: 10;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1.5rem;
+}
+</style>
 
-<!-- 💖 Título y descripción -->
-<div class="titulo-cristel">
+<!-- Recuadro de bienvenida -->
+<div class="header-box">
   ✨ Soy Cristel ✨<br>
   Sissy gótica, bimbo, sumisa, nacida para complacer y ser usada ♀💄
 </div>
 
+<!-- Palabras dinámicas -->
+<div class="word-cloud" id="wordCloud"></div>
+
 <script>
-  const palabras = [
-    "slut", "puta", "tonta", "sumisa", "bimbo", "♀", "muñeca", "mascota", "obediente",
-    "sissy", "perra", "humillada", "adoradora", "pechos vacíos", "culo rosado",
-    "paypig", "sissy whore", "obediencia", "degradada", "plástica", "vagina falsa",
-    "adorable", "sexo oral", "objeto", "collar", "disponible", "♂=dueño", "♀", "♀"
-  ];
+// Palabras para el fondo dinámico
+const palabras = [
+  "sissy", "adoradora", "collar", "obediencia", "plástica", "perra", "disponible", 
+  "bimbo", "tonta", "sumisa", "falsa", "esclava", "mascota", "culo rosado", "♀", 
+  "degradada", "adoradora", "papelera", "slut", "muñeca", "objeto", "puta", "sumisión", "💄"
+];
 
-  function crearPalabra() {
-    for (let i = 0; i < 4; i++) {
-      const palabra = document.createElement("div");
-      palabra.className = "palabra-flotante";
-      palabra.innerText = palabras[Math.floor(Math.random() * palabras.length)];
-      palabra.style.left = Math.random() * window.innerWidth + "px";
-      palabra.style.bottom = "0px"; // ✨ Desde abajo
-      document.body.appendChild(palabra);
-      setTimeout(() => palabra.remove(), 6000);
-    }
-  }
+const wordCloud = document.getElementById("wordCloud");
 
-  setInterval(crearPalabra, 400); // Más frecuencia
+function crearPalabra() {
+  const span = document.createElement("span");
+  span.className = "word";
+  span.textContent = palabras[Math.floor(Math.random() * palabras.length)];
+  span.style.left = `${Math.random() * 100}%`;
+  span.style.bottom = `-${Math.random() * 20 + 5}px`;
+  span.style.fontSize = `${Math.random() * 1.5 + 1}rem`;
+  wordCloud.appendChild(span);
+
+  setTimeout(() => {
+    span.remove();
+  }, 20000);
+}
+
+setInterval(crearPalabra, 200); // Más palabras, más rápido
 </script>
-
-</body>
-</html>
-
     /* Otras secciones iguales al anterior */
     #castigos {
   background: radial-gradient(circle at top left, #1a000f, #330000, #000000);
