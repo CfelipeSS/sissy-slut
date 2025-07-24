@@ -46,7 +46,7 @@
     }
 
     /* Frases flotantes por toda la pantalla */
-   <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -58,6 +58,22 @@
       background: linear-gradient(135deg, #ffb6c1, #dda0dd, #e75480);
       height: 100vh;
       font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* 🌸 Cuadro con tu nombre y descripción */
+    .titulo-cristel {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 20px 40px;
+      border-radius: 20px;
+      font-size: 28px;
+      text-align: center;
+      z-index: 10;
+      box-shadow: 0 0 10px #ff69b4;
     }
 
     .palabra-flotante {
@@ -81,12 +97,18 @@
       }
       100% {
         opacity: 0;
-        transform: translateY(-100px) scale(0.9) rotate(-10deg);
+        transform: translateY(-100vh) scale(0.9) rotate(-10deg);
       }
     }
   </style>
 </head>
 <body id="cristel">
+
+<!-- 💖 Título y descripción -->
+<div class="titulo-cristel">
+  ✨ Soy Cristel ✨<br>
+  Sissy gótica, bimbo, sumisa, nacida para complacer y ser usada ♀💄
+</div>
 
 <script>
   const palabras = [
@@ -97,22 +119,19 @@
   ];
 
   function crearPalabra() {
-    for (let i = 0; i < 4; i++) { // crea varias a la vez
+    for (let i = 0; i < 4; i++) {
       const palabra = document.createElement("div");
       palabra.className = "palabra-flotante";
       palabra.innerText = palabras[Math.floor(Math.random() * palabras.length)];
-      palabra.style.top = Math.random() * window.innerHeight + "px";
       palabra.style.left = Math.random() * window.innerWidth + "px";
+      palabra.style.bottom = "0px"; // ✨ Desde abajo
       document.body.appendChild(palabra);
       setTimeout(() => palabra.remove(), 6000);
     }
   }
 
-  setInterval(crearPalabra, 400); // más frecuencia
-</script>
+  setInterval(crearPalabra, 400); // Más frecuencia
 
-</body>
-</html>
 
 
     .tarjeta {
