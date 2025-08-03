@@ -48,7 +48,6 @@
       display: flex;
     }
 
-    /* Fondo de palabras */
     .word-cloud {
       position: fixed;
       bottom: 0;
@@ -80,7 +79,6 @@
       }
     }
 
-
     .tarjeta {
       background-color: rgba(255, 255, 255, 0.1);
       padding: 2rem;
@@ -88,18 +86,17 @@
       box-shadow: 0 0 10px deeppink;
       max-width: 600px;
     }
-    
-#cristel {
-  background: linear-gradient(to bottom right, #a64ca6, #ff69b4);
-  animation: brilloRosa 6s ease-in-out infinite alternate;
-}
 
-@keyframes brilloRosa {
-  0% { filter: brightness(1); }
-  100% { filter: brightness(1.15) saturate(1.3); }
-}
+    #cristel {
+      background: linear-gradient(to bottom right, #a64ca6, #ff69b4);
+      animation: brilloRosa 6s ease-in-out infinite alternate;
+    }
 
-    /* Sección Castigos */
+    @keyframes brilloRosa {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.15) saturate(1.3); }
+    }
+
     #castigos {
       background: radial-gradient(circle at top left, #1a000f, #330000, #000000);
       animation: latido 5s infinite alternate;
@@ -186,14 +183,18 @@
     <button onclick="mostrarSeccion('roleplay')">Roleplay</button>
   </nav>
 
-  
-
   <div class="word-cloud" id="wordCloud"></div>
 
   <section id="cristel" class="active">
     <div class="tarjeta">
       <h1>✨ Cristel ✨</h1>
-      <p>Soy tu puta boba, nacida para complacer, sumisa, decorativa, usada. Aquí comienza mi mundo rosa y sucio.</p>
+      <p>
+        Soy Cristel, una sissy nueva, obediente y en pleno proceso de transformación gótica 🖤✨.<br><br>
+        Mi nombre completo es Cristel Valentina Darkslut, una muñeca sumisa con hambre de placer, humillación y obediencia.<br><br>
+        Tengo 19 añitos, y estoy descubriendo mi lado más oscuro, más puta y más sissy. Me excita ser moldeada, entrenada y expuesta como una muñeca provocadora, pecadora y dispuesta a todo 💄👅.<br><br>
+        Quiero convertirme en una gótica pervertida, atrevida y completamente entregada al rol de objeto sexual. Adoro el maquillaje oscuro, los collares de sumisión, los portales con reglas estrictas y los entrenamientos que me transforman día a día.<br><br>
+        Si estás aquí para usarme, entrenarme o simplemente disfrutarme... bienvenido 😈💋. 
+      </p>
     </div>
   </section>
 
@@ -243,9 +244,9 @@
       const span = document.createElement("span");
       span.className = "word";
       span.textContent = palabras[Math.floor(Math.random() * palabras.length)];
-      span.style.left = ${Math.random() * 100}%;
-      span.style.bottom = -${Math.random() * 20 + 5}px;
-      span.style.fontSize = ${Math.random() * 1.5 + 1}rem;
+      span.style.left = Math.random() * 100 + "%";
+      span.style.bottom = -Math.random() * 20 + "px";
+      span.style.fontSize = (Math.random() * 1.5 + 1) + "rem";
       wordCloud.appendChild(span);
 
       setTimeout(() => {
